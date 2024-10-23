@@ -132,7 +132,7 @@ pear_general_ols_tbl <-
   clean_combine(
     filter_date = "1981-04-01",
     join_data = pear_daily_tbl,
-    join_var = "PEAR") %>% 
+    join_var = "PEAR") 
 
 formula <-  as.formula(a2 ~ PEAR)
 

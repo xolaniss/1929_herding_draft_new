@@ -238,6 +238,7 @@ probit_party_dummy_model_tbl <-
 
 # Export ---------------------------------------------------------------
 artifacts_party_dummy <- list (
+  presidential_tbl = presidential_tbl,
   ols_party_dummy_model_tbl = ols_party_dummy_model_tbl,
   probit_party_dummy_model_tbl = probit_party_dummy_model_tbl
 )

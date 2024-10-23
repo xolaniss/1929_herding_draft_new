@@ -92,6 +92,21 @@ combined_fundamental_tbl <-
   )
 
 # PAR ---------------------------------------------------------------------
+
+## Overall herding -------------------------------------------------------
+formula <-  as.formula(CSAD ~ abs(`Market Return`) + 
+                         I(`Market Return` ^ 2) + 
+                         PAR_high_dummy:I(`Market Return` ^ 2) +
+                         PAR_low_dummy:I(`Market Return` ^ 2))
+par_ols_full_tbl <- 
+  combined_fundamental_tbl %>% 
+  dplyr::select(-Crisis) %>% 
+  ols_group_full_workflow(formula = formula) %>% 
+  mutate(Herd = "General Herding") %>%
+  ungroup()
+
+par_ols_full_tbl
+
 ## Fundamental -------------------------------------------------------------------
 formula <-  as.formula(CSAD_fund ~ abs(`Market Return`) + 
                          I(`Market Return` ^ 2) + 
@@ -101,7 +116,7 @@ par_ols_full_fundamental_tbl <-
   combined_fundamental_tbl %>%
   dplyr::select(-Crisis) %>%
   ols_group_full_workflow(formula = formula) %>% 
-  mutate(Herd = "Fundamental") %>% 
+  mutate(Herd = "Fundamental Herding") %>% 
   ungroup()
 
 par_ols_full_fundamental_tbl
@@ -115,13 +130,29 @@ par_ols_full_nonfundamental_tbl <-
   combined_fundamental_tbl %>% 
   dplyr::select(-Crisis) %>% 
   ols_group_full_workflow(formula = formula) %>% 
-  mutate(Herd = "Non Fundamental") %>% 
+  mutate(Herd = "Non-Fundamental Herding") %>% 
   ungroup() 
 
 par_ols_full_nonfundamental_tbl
 
 
 # PEAR ---------------------------------------------------------------------
+## Overall herding -------------------------------------------------------
+formula <-  as.formula(CSAD ~ abs(`Market Return`) + 
+                         I(`Market Return` ^ 2) + 
+                         PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         PEAR_low_dummy:I(`Market Return` ^ 2))
+pear_ols_full_tbl <-
+  combined_fundamental_tbl %>%
+  dplyr::select(-Crisis) %>%
+  ols_group_full_workflow(formula = formula) %>% 
+  mutate(Herd = "General Herding") %>% 
+  ungroup()
+
+pear_ols_full_tbl
+
+
+
 ## Fundamental -------------------------------------------------------------------
 formula <-  as.formula(CSAD_fund ~ abs(`Market Return`) + 
                          I(`Market Return` ^ 2) + 
@@ -131,7 +162,7 @@ pear_ols_full_fundamental_tbl <-
   combined_fundamental_tbl %>%
   dplyr::select(-Crisis) %>%
   ols_group_full_workflow(formula = formula) %>% 
-  mutate(Herd = "Fundamental") %>% 
+  mutate(Herd = "Fundamental Herding") %>% 
   ungroup()
 
 pear_ols_full_fundamental_tbl
@@ -145,18 +176,21 @@ pear_ols_full_nonfundamental_tbl <-
   combined_fundamental_tbl %>% 
   dplyr::select(-Crisis) %>% 
   ols_group_full_workflow(formula = formula) %>% 
-  mutate(Herd = "Non Fundamental") %>% 
+  mutate(Herd = "Non-Fundamental Herding") %>% 
   ungroup() 
 
 pear_ols_full_nonfundamental_tbl
 
 
 ## Combined ----------------------------------------------------------------
-par_ols_fund_tbl <- rbind(par_ols_full_fundamental_tbl, par_ols_full_nonfundamental_tbl)
-pear_ols_fund_tbl <- rbind(pear_ols_full_fundamental_tbl, pear_ols_full_nonfundamental_tbl)
+par_ols_fund_tbl <- rbind(par_ols_full_tbl, par_ols_full_fundamental_tbl, par_ols_full_nonfundamental_tbl)
+pear_ols_fund_tbl <- rbind(pear_ols_full_tbl, pear_ols_full_fundamental_tbl, pear_ols_full_nonfundamental_tbl)
 
 # Exporting -------------------------------------------------------------
 artifacts_alternative_ratings_models <- list(
+  data = list(
+    combined_fundamental_tbl = combined_fundamental_tbl
+  ),
   models = list(
     par_ols_fund_tbl = par_ols_fund_tbl,
     pear_ols_fund_tbl = pear_ols_fund_tbl

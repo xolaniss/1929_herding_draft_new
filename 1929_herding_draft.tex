@@ -182,7 +182,7 @@
 \begin{document}
 
 
-\title{Industry herding behaviour in the US stock market between 1926 and 2022: A focus on the role of political cycles}
+\title{Presidential politics and investor behavior in the stock market: Evidence from a century of stock market data}
 
 
 \author { Xolani Sibande\footnote{Corresponding Author. Department of Economics, University of Pretoria, Pretoria, South Africa; Email: xolaniss@gmail.com. Economic Research Department, South African Reserve Bank, Pretoria, South Africa.} \,\, 
@@ -195,250 +195,292 @@ Rangan Gupta\footnote{Department of Economics, University of Pretoria, Pretoria,
 
 \begin{abstract}
 
-In this paper, we investigate the herding behaviour of investors in the US stock market using daily data from 1929 to 2022. We employ the cross-sectional absolute deviation (CSAD) measure of herding proposed by \cite{christie1995following} and \cite{chang2000examination}. Our results suggest that herding behaviour is present in the US stock market and that it is more pronounced during periods of high market volatility or crisis periods. This was evident is almost all the industry groups. Furthermore,  we find mixed evidence for intentional herding in industries. The results further show that herding is more prevalent in democratic administration due to high risk aversion. That, therefore, risk-aversion is a key factor in driving herding in some industries. Our findings have important implications for policy-makers and investors alike. 
+This paper examines the role of political cycles on investor behavior in the U.S. stock market with a particular focus on herding behavior. Using long history of stock market data spanning from 1926 to 2022 and employing the return-based herding tests of \cite{christie1995following} and \cite{chang2000examination}, we first show that herding is more pronounced during periods of high market volatility or crisis periods across all industry groups examined. While herding is primarily driven by fundamental information regarding the stock market, we also find evidence of intentional herding, particularly during crisis periods, due to non-fundamental market factors. More importantly, we establish a link between herd behavior and political cycles. We show that herding is more prevalent during Democratic administrations, in line with the risk-based model of \cite{pastor2020political} that associates Democratic presidencies with high risk aversion and thus high risk premia in equities. Furthermore, we present evidence of spurious herding during periods of high approval of presidential economic policies, while intentional anti-herding is also present mostly for production-based industries during such periods, implying heterogeneous effects of partisan politics on industry herding. Our findings provide novel insight for the link between political dynamics and investor behavior with important implications for policy makers and investors. 
 
 \end{abstract}
 
-\noindent\textbf{Keywords}: Herding Behaviour, Financial Crises, Market Efficiency
+\noindent\textbf{Keywords}: Herding Behaviour, Financial Crises, Market Efficiency, Political Cycles
 \\
 \textbf{JEL Codes}: G01, G14, G15, G41
 \newpage
 
 \setstretch{1.5}
-\section{Introduction and Literature
-Review}\label{introduction-and-literature-review}
+\section{Introduction}\label{introduction}
 
-It is well established that over the recent decades a significant
-progress has been achieved in explaining the behaviour of financial
-markets. Probably one of the most influential concepts in the mainstream
-finance literature is that of market efficiency that was formulated by
-\citet{fama1970efficient} among others. However, market efficiency rests
-on a series of assumptions that are mostly related to the existence of
-costly and asymmetric information, agency costs, market frictions such
-as transaction costs or limits to arbitrage and non-rational economic
-behaviour. Rational behaviour is a very popular concept among economic
-agents that is in the epic-enter of many economic models. Since the
-pioneer work of economist John Keynes who made the notion of `animal
-spirits' acceptable in economics in 1936, literature of financial
-economics is still treating animal spirits across financial markets with
-scepticism in spite of many notable attempts
-\citep{kahneman2003maps, shiller2005behavioral, dai2020animal} and the
-award of the Noble Prize in Economics for systematic attempts to explore
-the psychological biases in economic decision-making
-\citep{kahneman2003maps}.
+One of the most influential concepts in the mainstream finance
+literature is that of market efficiency that was formulated by
+\citet{fama1970efficient} among others. However, the concept of an
+informationally efficient market rests on a series of assumptions that
+assume away the presence of costly and asymmetric information, agency
+problems, market frictions such as transaction costs or limits to
+arbitrage in addition to irrational economic behaviour. Although the
+concept of rationality takes on a central role in how we model the
+behavior of economic agents, there is growing evidence suggesting that
+investors often suppress their own beliefs and mimic the trades of
+others when making investment choices. While such behavior is in line
+with the the notion of `animal spirits' highlighted in the financial
+economics literature
+\citep{kahneman2003maps, shiller2005behavioral, dai2020animal} as well
+as the presence of psychological biases in economic decision making
+\citep{kahneman2003maps}, eventually leading to the prestigious Noble
+Prize in Economics 2002, herd formation is considered to be an
+inefficient form of information processing by agents, which can lead to
+excessive volatility and price distortions \citep[among
+others][]{bikhchandani1992theory, nofsinger1999herding, kyle2001contagion, acharya2009prologue, ali2023anti}.
 
-As previously stated, market efficiency is achieved when markets are
-perfect while deviations from perfect markets can be attributed to
-various causes that might be related to developments in the
-macroeconomic environment or market frictions such as transaction costs
-and limits to arbitrage. Behavioural biases and other deviations from
-rationality such as herding or other positive feedback behaviour
-classify as potential drivers of market inefficiency as well
-\citep{aggarwal2014animal}. Some of these forces against market
-efficiency can be mitigated, but they cannot be eliminated. Thus, while
-there are many self-correcting forces that move markets towards
-efficiency, there are also many obstacles and costs that these
-equilibrating forces must overcome.
+Inefficiencies in how investors process information can be due to
+behavioural biases or other deviations from rationality such as herding
+or feedback trading \citep{aggarwal2014animal}. In the literature, while
+several studies argue that herd formation can be a result of information
+asymmetries wherein following the market consensus creates a sense of
+security among less informed traders
+\citep[e.g.][]{devenow1996rational}, others argue that managers'
+tendency to avoid reputation related costs can also drove such behavior
+\citep[e.g.][]{maug1996herding}. While some of the factors that drive
+such inefficient behavior by investors can be mitigated by improving
+market transparency or informational asymmetries, political conditions
+emerge as a significant source of uncertainty that can induce such
+behavior in financial markets. Interestingly, however, although the
+literature offers ample evidence that links political factors with
+financial market dynamics, how political factors relate to herd behavior
+in financial markets is relatively understudied. Against this backdrop,
+the main goal of this paper is to examine the role of political cycles
+on investor behavior in the U.S. stock market with a particular focus on
+herding behavior. To this end, we utilize a century of stock market data
+spanning from 1926 to 2022 which allows us to examine not only a long
+history of presidential cycles, but also a wide range of market crisis
+periods that can also contribute to herding.
 
-Financial markets that are dominated by agents' actions have been a
-perfect setting to study human behavior and in particular the occurrence
-of various biases since the seminal study of
-\citet{tversky1974judgment}. Literature on the behavioral effects on
-decision making has flourished in recent decades \citep[see][ for a
-detailed review]{aggarwal2014animal}. Behavioural economics that lie in
-the intersection of psychology and economics attempt to shed more light
-on these biases and how they affect decisions made by agents acting
-under cognitive and emotional constraints
-\citep{mullainathan2000behavioral}. Human behavior that is by nature
-prone to heuristics, emotional biases and framing effects
-\citep{aggarwal2014animal} might result in sub-optimal decisions that in
-turn cause market inefficiencies and market failures.
+In particular, our study makes the following contributions to the
+literature. First, we provide new evidence on the presence of herding
+behaviour across different industry groups in the U.S. stock market
+using a long history of data that allows us to examine a wide range of
+market crisis periods. Furthermore, we distinguish between spurious
+herding that can occur as a result of investors' common, rational
+responses to public information and intentional herding that is
+associated with informational inefficiencies. Although herding in the
+U.S. stock market has been examined in the literature, our analysis
+provides a comprehensive perspective of its evolution within a
+time-varying framework by distinguishing between spurious and
+intentional herding. Second, we examine the determinants of herding
+behaviour across different industry groups by focusing on the role of
+market crises on herding behaviour. Finally and more importantly,
+motivated by the recent evidence in \citet{gavriilidis2024political}
+that links political uncertainty to herding among institutional
+investors, we investigate the role of political cycles and approval
+ratings on herding behaviour in the stock markets. Accordingly, the
+paper presents novel perspective for the well-established literature on
+the presidential puzzle pioneered by \citet{santa2003presidential},
+while it presents a long term perspective to the evolution of herding
+dynamics in the U.S. stock market.
 
+Employing the return-based herding tests of
+\citet{christie1995following} and \citet{chang2000examination}, we first
+show that herding is more pronounced during periods of high market
+volatility or crisis periods across all industry groups examined. While
+herding is primarily driven by fundamental information regarding the
+stock market, we also find evidence of intentional herding, particularly
+during crisis periods, due to non-fundamental market factors. More
+importantly, we establish a link between herd behavior and political
+cycles. We show that herding is more prevalent during democratic
+administrations, in line with the risk-based model of
+\citet{pastor2020political} that associates Democratic presidencies with
+high risk aversion and thus high risk premia in equities. Furthermore,
+we present evidence of spurious herding during periods when presidential
+economic approval is high, while intentional anti-herding is also
+present mostly for production-based industries during such periods,
+implying heterogeneous effects of partisan politics on industry herding.
+The remainder of the paper is structured as follows. Section 2 presents
+a brief review of the literature on herding and the role of political
+cycles in the stock market. Section 3 describes the data and
+methodology. Section 3 presents the results and Section 4 concludes.
+
+\section{Literature Review}\label{literature-review}
+
+Literature on the behavioral effects on decision making has flourished
+in recent decades \citep[for a detailed review
+see][]{aggarwal2014animal}. The motivation behind these studies are
+built on behavioural economics that lie in the intersection of
+psychology and economics attempting to shed light on how decisions made
+by agents who act under cognitive and emotional constraints
+\citep{mullainathan2000behavioral} affect the efficient processing of
+information in financial markets. This follows the argument that human
+behavior that is by nature prone to heuristics, emotional biases and
+framing effects \citep{aggarwal2014animal} might result in sub-optimal
+decisions that in turn cause market inefficiencies and market failures.
 Under this context, market participants and financial economists provide
 increasingly convincing evidence that imitative behaviour is widespread
 in financial markets \citep{devenow1996rational}. This correlated
 trading behaviour of investors at large scale could pose significant
 threats to financial stability since they might increase volatility and
-create headaches for policymakers and supervisory authorities
+create headaches for policy-makers and supervisory authorities
 \citep{demirer2015commodity}.
 
-Therefore, the concept of herding behavior started to gain the attention
-of researchers and academics early in the 1990s, when the studies of
-\citet{banerjee1992simple} and \citet{bikhchandani1992theory} appeared.
-Literature on herding is voluminous but still remains inconclusive.
-Herding behaviour can be distinguished between unintentional and
-intentional. In the former case investors respond to a common set of
-information that refers to market developments and in the latter case
-investors discard their own beliefs and decide to follow the decisions
-of other leading to intentional herding \citep{bikchandani2000herd}.
-\citet{spyrou2013herding} and \citet{komalasari2022herding} provide some
-excellent reviews of the relevant studies. Herding studies have expanded
-across the behavior of individual investors across all financial markets
-namely stock markets \citep[see inter
-alia][]{demirer2006does, chiang2010empirical, ukpong2021determinants},
-bond markets \citep[see inter alia][]{galariotis2016herd}, commodities'
-markets
-\citep{demirer2015commodity, babalos2015herding, babalos2015commodity, junior2020analyzing, youssef2022oil},
-real estate markets \citep[see inter
-alia][]{philippas2013herding, lesame2024herding} using returns data.
-Another strand of literature focus on herding behaviour of institutional
-investors such as money managers \citep{jiang2018does}, financial
-analysts \citep{leece2017effects} and FX market forecasters
-\citep{tsuchiya2015herding} employing mostly information from
-transactions data. Most recently, herding behavior of investors in
-cryptocurrency markets has received the attention of literature
-\citep[see inter alia][]{bouri2019herding}.
+Accordingly, the concept of herding behavior started to gain the
+attention of researchers and academics early in the 1990s, pioneered by
+the works of \citet{banerjee1992simple} and
+\citet{bikhchandani1992theory}. Literature on herding is voluminous but
+still remains inconclusive on the motives and conditions that bring
+about such behavior. Herding behaviour is generally categorized into
+unintentional and intentional herding. In the former case, investors
+respond to a common set of information associated with market
+developments and in the latter case investors, intentionally discard
+their own beliefs and decide to follow the decisions of so-called
+informed traders \citep{bikchandani2000herd}. \citet{spyrou2013herding}
+and \citet{komalasari2022herding} provide some excellent reviews of the
+relevant studies. In the literature, herding studies have been well
+applied to different contexts including equity markets \citep[see
+\emph{interalia}][]{demirer2006does, chiang2010empirical, ukpong2021determinants},
+bond markets \citep[see \emph{interalia}][]{galariotis2016herd},
+commodities {[}\citet{demirer2015commodity}; \citet{babalos2015herding};
+\citet{babalos2015commodity}; \citet{junior2020analyzing};
+\citet{youssef2022oil}, real estate markets \citep[see
+\emph{interalia}][]{philippas2013herding, lesame2024herding} across a
+wide range of international settings. Separately, another strand of
+literature focus on herding behaviour of institutional investors
+including money managers \citep{jiang2018does}, financial analysts
+\citep{leece2017effects} and FX market forecasters
+\citep{tsuchiya2015herding}, generally using transaction or holding
+level data. Most recently, herding tests have been extended to the
+cryptocurrency markets which has received increasing attention in the
+literature \citep[see \emph{interalia}][]{bouri2019herding}.
 
-Herding has been in the epicentre of a heated discussion that seeks
-robust empirical evidence in an attempt to confirm that correlated
-actions of investors at a large scale could induce market instability
-and volatility. Likewise, the above argument could work the other way
-around that is herding is more intense during market turmoil or
-increased volatility. \citet{welch2000herding} points out: ``Herding in
-financial markets, in particular, is often presumed to be pervasive,
-even though the extant empirical evidence is surprisingly sparse''.
-Studies on herding examine the behaviour of investors towards market as
-a whole or at a sector level. Researchers have been concerned with
-herding activity across sectors in the US or in an international context
-with contradictory results \citep[see inter
-alia][]{christie1995following, choi2009institutional, litimi2016herding}.
-Herding behaviour might vary across sectors probably because of the
-specific style of the industry, the economic conditions that might
-affect each sector or the trading patterns of investors in certain
-industries. \citet{henker2006investors} find that herding is more
-prevalent in industries such as materials, consumer staples and
-financials. \citet{gkebka2013international} employing data for 32
-countries find that herding is more intense in sectors such as basic
-materials, consumer services, and oil and gas and this behaviour might
-be the result of a group of investors that follow each other in and out
-of markets, overconfidence, or excessive flight to quality. They also
-stressed that testing herding towards market could underestimate the
-real effect of herding behaviour and research should try to shed light
-on the behaviour of investors at sector level. In the Malaysian market,
+Examining the implications of herding in market valuations and price
+dynamics, some studies show that correlated actions of investors at a
+large scale could induce market instability and volatility, while one
+can also argue that herding would be more prevalent during periods of
+market turmoil or increased volatility. Considering that correlated
+behavior of investors would be more prevalent within asset classes of
+similar characteristics, one strand of the literature has focused on
+herding activity across sectors or in an international setting, however,
+presenting contradictory results \citep[see
+\emph{interalia}][]{christie1995following, choi2009institutional, litimi2016herding}.
+One reason for why herding behaviour might be more prevalent within an
+industry setting can be due to the specific style of the industry, the
+economic conditions that might affect each sector or the trading
+patterns of investors in certain industries. For example,
+\citet{henker2006investors} find that herding is more prevalent in
+industries such as materials, consumer staples and financials.
+Similarly, employing data from 32 countries,
+\citet{gkebka2013international} find that herding is more intense in
+sectors such as basic materials, consumer services, and oil and gas and
+this behaviour might be the result of a group of investors that follow
+each other in and out of markets, overconfidence, or excessive flight to
+quality. They also stressed that testing herding towards market could
+underestimate the real effect of herding behaviour and research should
+try to shed light on the behaviour of investors at the sector level. To
+support this argument, in an application to the Malaysian stock market,
 \citet{dehghani2014sectoral} find that herding behaviour is only
-constrained to technology sector. Nine Asian markets were investigated
-by \citet{zheng2017herding} for herding at sector level. They provided
-evidence in favour of herding in the Technology and Financial
-industries, but weaker in the Utility industry. Moreover, herding in
-certain industries was more intense during bear markets and low trading
-volumes. Returning to US, \citet{bensaida2017herding} confirmed the
-presence of herding behaviour for 10 out of 12 sectors of US stock
-market during periods of financial crises and bubbles.
+constrained to technology sector. Similarly, studying nine Asian
+markets, by \citet{zheng2017herding} show evidence of herding at the
+sectoral level, particularly in the Technology and Financial industries,
+but weaker in the Utility industry. Moreover, herding in certain
+industries is found to be more intense during bear markets and periods
+of low trading volume. In the US context, \citet{bensaida2017herding}
+confirm the presence of herding behaviour in 10 out of 12 US sectors
+during periods of financial crises and bubbles. Similarly,
 \citet{ukpong2021determinants} document weak evidence of herding
 especially in the Financials, Real Estate, Telecoms and Utilities
 sectors for US market.
 
-Therefore, the study of herding behaviour across financial markets has
-become increasingly important in understanding the dynamics of investor
-decision-making and market stability. Herding, whether intentional or
-unintentional, reflects the tendency of investors to follow the crowd
-rather than act on independent information or analysis. This behaviour
-can exacerbate market volatility and pose challenges for regulators and
-policy-makers aiming to maintain financial stability.
+In another well-established strand of the literature, evidence suggests
+the presence of a political cycle effect in stock market returns in the
+US. Documenting that the US stock market has generally produced superior
+returns under Democratic presidents than under Republicans,
+\citet{santa2003presidential} argue that this phenomenon cannot be
+explained by risk-based arguments, thus calling it the ``presidential
+puzzle''.\footnote{Similarly, \citet{demirer2018presidential} show that
+  the political cycle effect extends beyond returns to asset market
+  correlations.} However, in a later, study, \citet{pastor2020political}
+develop a model of political cycles in which the presidential puzzle
+emerges endogenously and link the presidential premium to risk aversion
+such that when risk aversion is high, voters are more likely to elect a
+Democratic president because they demand more social insurance whereas
+when risk aversion is low, a Republican president is likely to be
+elected since the voters want to take on more business risk. The
+risk-based arguments are further supported by other studies that
+establish a link between political uncertainty and corporate investment
+\citep{jens2017political}, volatility in financial markets
+\citep{boutchkova2012precarious} and a risk premium in asset returns
+during politically uncertain times \citep{montone2022does}. In a study
+that is more related to our focus of herding, the recent work by
+\citet{gavriilidis2024political} provides evidence of herding by
+institutional investors during politically uncertain times although thus
+study does not directly relate herding to the presidential cycle that is
+well-established in the literature. In our case, we attempt to examine
+herding using a long history of data dating back to 1926 by relating it
+to the presidential cycle along with the non-partisan political dynamics
+that have been shown to affect stock market returns
+\citep[e.g.][]{montone2022does}.
 
-In summary the paper makes the following contributions to the
-literature. First, we provide new evidence on the presence of herding
-behaviour across different industry sectors in the US stock market. We
-concede that the study of industry herding is not novel, however, we
-offer a comprehensive perspective of its evolution going back to the
-great depression. We argue that there is value in this. Second, this
-comprehensive perspective includes the examination of the determinants
-of herding behaviour across different sectors, focusing on the
-intersection of herding behaviour and market crisis periods. Inspired by
-\citet{nath2020investor}, we investigate the relationship between
-herding behaviour and political cycles and approval ratings. This is a
-new area in the literature that we attempt to add to. It exposes
-risk-aversion as one of the key determinants of herding behaviour. The
-paper is structured as follows. Section 2 presents the data and
-methodology. Section 3 presents the results and Section 4 concludes.
-
-\section{Data and Methodology}\label{data-and-methodology}
+\subsection{Data and Methodology}\label{data-and-methodology}
 
 \subsection{Data}\label{data}
 
-Our analysis utilises Kenneth French's 49 industry portfolio
-returns.\footnote{\url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french}}
-Through his website Kenneth French provides a variety of financial
-market related data for research purposes, which include the famous
-Fama/French factors data. These data have two main advantages for
-researchers. First, the industry portfolio data varies in detail from 5
-to 49 industry data-sets. Second, the data cover long periods of time,
-typically to pre World War II. Specifically, the daily data covers the
-period 1 July 1926 to 29 July 2022. The significant length and breadth
-of this data is essential for our analysis.
+Our analysis utilises Kenneth French's 49 industry portfolio returns
+along with the Fama-French factor series that we use in the subsequent
+fundamental vs non-fundamental herding tests covering a long history of
+stock market data from July 1926 to July 2022.\footnote{\url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french}}
+The industry portfolios range from 5 to 49 industry groups and are
+formed by assigning stocks from the NYSE, AMEX, NASDAQ to an industry
+portfolio using the four-digit Centre for Research in Security Prices
+Standard Industry Classification Codes (CSRP-SIC). In our herding tests,
+we create five industry groups from the 49 industries to calculate the
+cross sectional dispersions as outlined in the methodology section.
+Table~\ref{tbl-grouping} provides the group the industries based on the
+CSRP-SICs and Table~\ref{tbl-desc} in the Appendix presents the
+descriptive statistics for the industry data. Given that we also focus
+on herding behaviour in periods of financial crisis, we examine herding
+during 5 major crises periods, namely the Great Depression, Dot-com
+Bubble, Great Financial Crisis and the recent Covid-Crisis as shown in
+Table~\ref{tbl-crises_description}.\footnote{\url{https://en.wikipedia.org/wiki/List_of_economic_crises}}
 
-We create 5 industry groups from the 49 industries in order to calculate
-the cross sectional dispersions as outlined in the methodology. In the
-data, stocks are assigned from the NYSE, AMEX, NASDAQ to an industry
-portfolio using a four-digit Centre for Research in Security Prices
-Standard Industry Classification Codes (CSRP-SIC).\footnote{At the end
-  of June each year} Essentially, the CSRP-SICs determine the level of
-industry aggregation in the data. Therefore, in Table~\ref{tbl-grouping}
-we group the industries using the CSRP-SICs.\footnote{These are also
-  available from
-  \url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french}} Lastly,
-Figure~\ref{fig-cons} to Figure~\ref{fig-mines}, and
-Table~\ref{tbl-desc} show the described industry data.
-
-In addition, we focus on herding behaviour in periods of financial
-crisis. Therefore, we use Wikipedia to identify 5 crises
-periods.\footnote{\url{https://en.wikipedia.org/wiki/List_of_economic_crises}}
-That is, the Great Depression, Dot-com Bubble, Great Financial Crisis
-and the recent Covid-Crisis. The crises periods are shown in
-Table~\ref{tbl-crises_description}.
-
-Lastly, in order to understand the effect of political cycles on
-industry herding we estimate the relationship between the time-varying
-herding coefficient and US presidential terms as outlined in
-Equation~\ref{eq-political} below.\footnote{The US presidential terms
-  can be found at
+To examine the effect of political cycles on industry herding, we
+examine the dynamics of industry herding across the US presidential
+terms shown in Table~\ref{tbl-terms} as outlined in
+Equation~\ref{eq-political}.\footnote{The US presidential terms are
+  obtained from
   \url{https://en.wikipedia.org/wiki/List_of_United_States_presidential_election_dates}}
-The US presidential terms are shown in Table~\ref{tbl-terms}. In order
-to match with the industry herding coefficients, the terms are converted
-to a daily frequency. We then estimate the relationship between
-presidential approval ratings (general and economic) and industry
-herding coefficients. The approval ratings unlike the presidential term
-data focuses on the performance of specific presidents and not just
-party terms. This analysis, therefore, adds to presidential term results
-which focused on party affiliation and industry herding. The approval
-ratings are shown in Figure~\ref{fig-approval}.\footnote{The data can be
-  accessed from:
-  \url{http://www.presidency.ucsb.edu/data/popularity.php.}} The
-presidential approval ratings (PAR) are compiled from the Gallup Poll by
-the American Presidency Project. The respondents answer the same
-question since 1941, ``Do you approve or disapprove of the way (enter
-President name) is handling his job as President?''. Then the percentage
-of respondents to the affirmative (or approval) forms the popularity or
-public approval rating. The presidential economic approval ratings
-(PEAR) data are collected by several organisations\footnote{These
-  include ABC News, American Research Group, CNN, and Fox News, amongst
-  others.} overtime based on the question, ``Do you approve or disprove
-of the way (name of the president) is handling the
-economy?''.\footnote{The PEAR data can be accessed at
-  \url{https://www3.nd.edu/~zda/PEAR.xlsx}} The PAR data are available
-from 1941 to 2022 at a monthly frequency. Whilst the PEAR data is from
-1981 to 2022, also at a monthly frequency. We converted these to a daily
-frequency to match the industry herding data.\footnote{Essentially
-  repeating the monthly value for all the days of that specific month}
+Furthermore, motivated by the established evidence that non-partisan
+politics have a significant effect on stock market returns and investors
+tend to be more optimistic when their preferred political party is in
+power \citep{montone2022does}, while party affiliation affects stock
+market participation \citep{kaustia2011stock} and risk taking behavior
+\citep{bonaparte2017political}, we utilize the presidential economic
+approval ratings (PEAR) data collected by several
+organisations\footnote{These include ABC News, American Research Group,
+  CNN, and Fox News, amongst others.} based on the question, ``Do you
+approve or disprove of the way (name of the president) is handling the
+economy?'\,'.\footnote{The PEAR data can be accessed at
+  \url{https://www3.nd.edu/~zda/PEAR.xlsx}} In a recent study,
+\citet{chen2023presidential} document a risk premium associated with
+PEAR such that stocks that have high exposure to changes in PEAR
+significantly under perform those with low betas, thus associating a
+firm's alignment to the incumbent president's economic policies with
+mispricing of its stock. In our case, we examine market's inefficient
+procession of information from a different context by relating it to
+herding behavior.
 
-\subsection{Testing for industry
-herding}\label{testing-for-industry-herding}
+\subsection{Benchmark test for industry
+herding}\label{benchmark-test-for-industry-herding}
 
-Following \citet{christie1995following} and \citet{chang2000examination}
-we calculate the cross-sectional absolute standard deviations
-(\(CSAD_{t}\)) for each industry group. The \(CSAD_{t}\) is calculated
-for all markets as follows:
+Following \citet{christie1995following} and
+\citet{chang2000examination}, we calculate the cross-sectional absolute
+standard deviations (\(CSAD_{t}\)) for each industry group. The
+\(CSAD_{t}\) is calculated for all industries as follows:
 
-\begin{equation}\phantomsection\label{eq-csad}{CSAD_{t} = \frac{1}{N}\sum_{i =1}^{N}{|R_{i,t} - R_{m,t}|},}\end{equation}
+\begin{equation}\phantomsection\label{eq-csad}{
+CSAD_{t} = \frac{1}{N}\sum_{i =1}^{N}{|R_{i,t} - R_{m,t}|},
+}\end{equation}
 
 where \(R_{i,t}\) observed returns from individual industry \(i\) at
-time \(t\), \(R_{m,t}\) is the average of the \(R_{i,t}\) or the market
-return. In this case, \(R_{m,t}\) is the group industry return which is
-an average of the individual industry returns. The return dispersion
-measures capture the directional similarity industry returns at a given
-point in time with respect to the aggregate market or group return.
-Herding tests, in turn, are based on the pattern of return dispersions
-during periods of large price movements.
+time \(t\) and \(R_{m,t}\) is the market return. In this case,
+\(R_{m,t}\) is the group industry return which is captured by the
+cross-sectional average of the individual industry returns. The return
+dispersion measures capture the directional similarity in industry
+returns at a given point in time with respect to the aggregate market or
+group return. Herding tests, in turn, are based on the pattern of return
+dispersions during periods of large price movements.
 
 The rationale behind the testing methodology is that, if herding is
 present, the correlated trades by investors will lead to greater
@@ -448,7 +490,8 @@ coefficients of the relationship between the return dispersion and
 \(R_{m, t}\) and \(R_{m, t}^2\) (or market return measures) in these
 equations for the general market herding:
 
-\begin{equation}\phantomsection\label{eq-csad2}{CSAD_{t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
+\begin{equation}\phantomsection\label{eq-csad2}{
+CSAD_{t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
 }\end{equation}
 
 where \(\gamma_2\) is the herding coefficient. The expectation is that
@@ -458,21 +501,20 @@ herding effect. This non-linear effect implies no herding when
 \(\gamma_2 = 0\), anti-herding when \(\gamma_2 > 0\) and, obviously,
 herding when \(\gamma_2 < 0\). We estimate \(CSAD_{t}\) with
 heteroskedastic and autocorrelation consistent (HAC) standard errors
-\citep[See][]{newey1987simple}.\footnote{We utilise the Newey-West
+{[}see \citet{newey1987simple}.\footnote{We utilise the Newey-West
   estimator for all estimations in this paper.} Furthermore, for all
 testing equations, we estimate changes in herding behaviour over time
 using a rolling-window approach with a 250 day.\footnote{This is a
   commonly used window in the literature. We do this throughout the
   herding analysis}
 
-\subsection{Industry herding in periods of financial
-crisis}\label{industry-herding-in-periods-of-financial-crisis}
-
-Herding is known to be more pronounced in times of market crisis. To
-test for this we use a dummy variable approach to test whether herding
-is more pronounced during periods of financial crisis.
-Equation~\ref{eq-csad2} is adjusted to include the \(D^{crisis}\), which
-is an crisis period indicator, as follows:
+The literature shows that herding is more pronounced in times of market
+crisis or high volatility \citep{balcilar2014drives}. To examine whether
+this is the case based on a long history of data, we use a dummy
+variable approach to test whether herding is more pronounced during
+periods of financial crisis. The benchmark model in
+Equation~\ref{eq-csad2} is therefore adjusted to include the
+\(D^{crisis}\), which is a crisis period indicator, as follows:
 
 \begin{equation}\phantomsection\label{eq-csad3}{
 \begin{aligned}
@@ -494,10 +536,9 @@ information by investors, or an accumulation of irrational behaviour by
 investors due to, for example, fear of under performance or fear of
 missing out on a market run \citep[see][]{Bikhchandani2001}. In order to
 test for the rationality of herding, we test whether herding is related
-to fundamental information. We use the following equations to test for
-the relationship between herding and fundamental information, and
-herding and non-fundamental information. First we isolate the
-non-fundamental component of herding as follows:
+to fundamental information and use the following equations to test for
+the presence of fundamental versus non-fundamental herding. To that end,
+we first isolate the non-fundamental component of herding as follows:
 
 \begin{equation}\phantomsection\label{eq-info}{
 CSAD_t = \alpha + \beta_1(R_{m,t} - Rf_t) + \beta_2HML_t + \beta_3SMB_t + \xi_t,
@@ -506,10 +547,9 @@ CSAD_t = \alpha + \beta_1(R_{m,t} - Rf_t) + \beta_2HML_t + \beta_3SMB_t + \xi_t,
 where \(Rf_t\) is the risk-free rate, \(HML_t\) is the high-minus-low
 portfolio and \(SMB_t\) is the small-minus-big portfolio. The \(Rf_t\),
 \(HML_t\) and \(SMB_t\) are all from the Fama-French 3 factor model
-\citep[see][]{fama1993common} and are shown in
-Figure~\ref{fig-famafrench}.
+\citep[see][]{fama1993common}. The non-fundamental component of herding
+is then obtained as:
 
-The non-fundamental component of herding is then:
 \begin{equation}\phantomsection\label{eq-nonfunda}{
 CSAD_{NONFUND, t} = \xi_t.
 }\end{equation}
@@ -521,15 +561,17 @@ CSAD_{FUND, t} = CSAD_t - CSAD_{NONFUND, t},
 
 where \(CSAD_{FUND, t}\) is the fundamental component of herding.
 
-We then test the relationship between \(CSAD_{NONFUND, t}\) and
-\(CSAD_{FUND, t}\) and herding as follows:
+Having decomposed the herding model into components associated with
+fundamental and non-fundamental informations, we then test the
+relationship between \(CSAD_{NONFUND, t}\) and \(CSAD_{FUND, t}\) and
+herding as follows:
 
 \begin{equation}\phantomsection\label{eq-nonfundaherd}{
-CSAD_{NONFUND,t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
+CSAD_{NONFUND,t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t}
 }\end{equation}
 
 \begin{equation}\phantomsection\label{eq-fundaherd}{
-CSAD_{FUND,t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
+CSAD_{FUND,t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t}
 }\end{equation}
 
 where \(\gamma_2\) is the herding coefficient. Again, the expectation is
@@ -564,10 +606,12 @@ herding is present if \(\gamma_3 < 0\) and is significant.
 \subsection{Industry herding and political
 cycles}\label{industry-herding-and-political-cycles}
 
-Inspired by the resent findings that risk aversion is a determinant of
-herding \citep{nath2020investor}, we construct a somewhat novel test to
-ask whether herding is related to political cycles. After taking market
-volatility into account, we estimate the following equations:
+Motivated by the recent findings that risk aversion is a determinant of
+herding \citep{nath2020investor} and the risk-based arguments associated
+with a presidential cycle in stock market returns
+\citep{pastor2020political}, we construct a somewhat novel test to
+explore whether herding is related to political cycles. Controlling for
+market volatility in our model, we estimate the following equations:
 
 \begin{equation}\phantomsection\label{eq-political}{
 Pr(D^{herd} = 1 |\lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t) = \lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t,
@@ -576,21 +620,20 @@ Pr(D^{herd} = 1 |\lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t) = \lambda
 where \(D^{herd}\) is dummy variable with value 1 when herding is
 present and 0 otherwise. \(D^{party}\) is a dummy variable which takes
 the value of 1 for the Democratic party, and 0 for the Republican
-party.\footnote{Equation~\ref{eq-political},
-  Equation~\ref{eq-politicalnonfund} and Equation~\ref{eq-politicalfund}
-  were estimated as linear probability and probit models. The estimates
-  of the linear probability model are the similar to the probit marginal
-  effects. For simplicity we use the linear probability model estimates.
-  The probit marginal effects are shown in Table~\ref{tbl-probit}.}
-\(\lambda_0\) is the Republican party estimate. \(\Gamma_t\) is the
-market volatility from a \(GARCH(1,1)\) model of the overall market
-returns (CSRP) of the industry portfolios as described above, and is
-shown in Figure~\ref{fig-volatility}.
+party.\footnote{Equation~\ref{eq-political} to
+  Equation~\ref{eq-politicalfund} are estimated as linear probability
+  and probit models. The estimates of the linear probability model are
+  the similar to the probit marginal effects. For simplicity, we use the
+  linear probability model estimates and the probit marginal effects are
+  shown in Table~\ref{tbl-probit} in the Appendix.} In this framework,
+\(\lambda_0\) is the Republican party estimate and \(\Gamma_t\) is the
+market volatility obtained from a \(GARCH(1,1)\) model of the overall
+market returns (CSRP) of the industry portfolios as described above.
 
 A natural question which follows is if the political cycle is a
-determinant herding, how is this affected by the rational or irrational
-herding. A similar analysis is conducted using herding related to
-fundamental and non-fundamental information in the following manner:
+determinant herding, how this relates to rational or irrational herding.
+Therefore, a similar analysis is conducted using herding related to
+fundamental and non-fundamental information by estimating:
 
 \begin{equation}\phantomsection\label{eq-politicalnonfund}{
 Pr(D^{herd}_{NONFUND} = 1 |\lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t) = \lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t,
@@ -604,15 +647,22 @@ where \(D^{herd}_{NONFUND}\) and \(D^{herd}_{FUND}\) are dummy variables
 with value 1 when non-fundamental and fundamental herding is present and
 0 otherwise.
 
-To further understand the relationship between industry herding and
-political cycles, we turn our attention to the effect of the performance
-of specific US presidents on industry herding. This is done by extending
-Equation~\ref{eq-nonfundaherd} and Equation~\ref{eq-nonfundaherd} to
-include the influence on herding of periods where presidential ratings
-are high and low in the following manner:
+In the last step of our analysis, considering the evidence that
+investors tend to be more optimistic when their preferred political
+party is in power \citep{montone2022does}, while party affiliation
+affects stock market participation \citep{kaustia2011stock} and risk
+taking behavior \citep{bonaparte2017political}, we turn our attention to
+the effect of the performance of specific US presidents on industry
+herding. This is done by extending Equation~\ref{eq-nonfundaherd} and
+Equation~\ref{eq-fundaherd} to examine the effect of presidential
+approval ratings on herding behavior as:
+
+\begin{equation}\phantomsection\label{eq-approval_overall}{
+CSAD = \gamma_0 + \gamma_1|R_{m,t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m,t}^2 + \gamma_4D_{low}R_{m,t}^2 + \epsilon_{t}, 
+}\end{equation}
 
 \begin{equation}\phantomsection\label{eq-approval}{
-CSAD_{NONFUND} = \gamma_0 + \gamma_1|R_{m,t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m,t}^2 + \gamma_4D_{low}R_{m,t}^2 + \epsilon_{t}, 
+CSAD_{NONFUND} = \gamma_0 + \gamma_1|R_{m,t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m,t}^2 + \gamma_4D_{low}R_{m,t}^2 + \epsilon_{t}, and
 }\end{equation}
 
 \begin{equation}\phantomsection\label{eq-approval_econ}{
@@ -620,56 +670,262 @@ CSAD_{FUND} = \gamma_0 + \gamma_1|R_{m,t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{hig
 }\end{equation}
 
 where \(D_{high}\) is a dummy variable which takes a value of 1 when the
-presidential approval rating (\(PEAR_t\)) is high\footnote{in the top
-  third of observations} and 0 otherwise, and \(D_{low}\) is a dummy
-variable which takes a value of 1 when the presidential approval rating
-is low and 0 otherwise. This extension is in line with
-\citet{pastor2020political} who suggests that herding is high when
-uncertainty in high (which occurs when presidential ratings are low)
-Equation~\ref{eq-approval} and Equation~\ref{eq-approval_econ} was
-estimated with OLS and HAC standard errors.
+presidential economic approval rating (\(PEAR_t\)) is high (i.e.~in the
+top tercile of the sample distribution) and 0 otherwise, and \(D_{low}\)
+is a dummy variable which takes a value of 1 when the presidential
+approval rating is low and 0 otherwise. Note that this model
+modification is in line with the evidence in \citet{pastor2020political}
+that herding is high when uncertainty in high (which coincides with low
+presidential ratings) and allows us to explore the effect of
+non-partisan politics on investor behavior from a novel angle.
 
-\section{Results}\label{results}
+\section{Empirical findings}\label{empirical-findings}
 
-\subsection{Descriptive analysis}\label{descriptive-analysis}
+\subsection{Results of the benchmark industry herding
+tests}\label{results-of-the-benchmark-industry-herding-tests}
 
-Table~\ref{tbl-desc} presents the descriptive statistics namely median,
-standard deviation, minimum and maximum, IQR and total number of
-observations of the employed variables for the whole US market and for
-every industry separately during normal times and during the pre-defined
-crisis periods. Table~\ref{tbl-desc} is built on the daily industry data
-in Figure~\ref{fig-cons} to Figure~\ref{fig-mines}, the industry
-grouping scheme in Table~\ref{tbl-grouping}, and the crises periods in
-Table~\ref{tbl-crises_description}. With over 25000 observations in the
-sample, these form the basis of the empirical analysis. The reader will
-note the low to zero returns in some industries in the earlier crisis
-periods influenced by the high volatility of returns in the market.
-These also explain some of the low estimates in the forthcoming results.
+Table~\ref{tbl-desc} in the Appendix presents the descriptive statistics
+for the employed variables for the whole US market and for individual
+industries during normal times and during the pre-defined crisis periods
+based on the industry grouping scheme given in Table~\ref{tbl-grouping}
+and the crises periods listed in Table~\ref{tbl-crises_description}.
+Considering that our subsequent analysis focuses on the time variation
+on the herding coefficients obtained from rolling regressions, we
+construct the return-based statistics using daily returns, which yields
+over 25,000 observations in the sample. While Manufacturing experiences
+the highest volatility in returns, we observe low to zero returns in
+some industries during the earlier crisis periods influenced by high
+market volatility. Consistently, the cross-sectional return dispersions
+take on larger values during crisis periods, indicating greater
+variability in returns across the stocks in the industry during such
+periods.
 
-\subsection{Evidence of industry herding in the
-US}\label{evidence-of-industry-herding-in-the-us}
-
-Table~\ref{tbl-ols} reports the ordinary least squares results of
+Table~\ref{tbl-ols} reports the ordinary least squares results for
 Equation~\ref{eq-csad2} employing the US industry returns both at
-aggregate level and at an industry level. Table~\ref{tbl-ols} is divided
-into three separate panels: the top panel presents estimated
-coefficients of Equation~\ref{eq-csad2} employing all days for the whole
-period of analysis while the middle panel presents the estimation
-results only for the top market returns and the bottom panel the
-relevant estimates during the down markets. Herding is detected
-examining the statistical significance and the sign of coefficient
-\(\gamma_2\) that can be found at the last column. When herding is
-present, \(\gamma_2\) assumes negative sign and appears statistically
-significant. A quick look of the results in Table~\ref{tbl-ols} reveals
-no herding behaviour when we use all day returns but significant herding
-effects for the whole sample and for separate sectors such as
-Consumables, Health and Other only during up markets. For example, in
-the middle panel and at the last column for Consumables we see a herding
-coefficient \(\gamma_2\) of -0.00016 that is highly significant. If we
-turn our attention to the bottom panel we document weak evidence of
-herding effects in the Manufacturing sector, an estimated value of
-\(\gamma_2\) coefficient -0.00006 that is statistically significant at
-1\%.
+aggregate level and at an industry level. Table~\ref{tbl-ols} is
+organized into three separate panels for the whole sample along with the
+results for UP and DOWN markets, captured by the top and bottom 5
+percent of market returns. Examining the statistical significance and
+the sign of the herding coefficient \(\gamma_2\) in the table, we do not
+observe evidence of industry herding for the whole sample in the top
+panel, in line with the evidence of limited evidence of herding at the
+sector level reported by \citet{ukpong2021determinants}. However, we
+observe more widespread evidence of herding when we focus on periods of
+large market fluctuations. Specifically, we find significant evidence
+consistent with herding in all industries as well as Consumables during
+UP markets, indicated by a herding coefficient \(\gamma_2\) of -0.00016
+that is highly significant, while weak evidence of herding is observed
+for Manufacturing sector during DOWN markets.
+
+The results for the static linear model reported in Table~\ref{tbl-ols},
+however, fails to capture the dynamic nature of herding over time.
+Therefore, following previous studies that highlight the dynamic nature
+of herding effect
+\citep{babalos2015commodity, klein2013time, mohamad2022birds} we
+estimate Equation~\ref{eq-csad2} using a rolling window estimation
+period of 250 days. Figure~\ref{fig-rol_gen} presents the graphical
+illustration of the time-varying herding coefficients along with the
+time evolution of the t-statistics. Focusing on the estimated herding
+coefficients, \(\gamma_2\), the rolling window analysis reveals
+substantial anti-herding effects, implies by the positive estimates for
+\(\gamma_2\), for the whole market (all industries) and for a number of
+industries, with periods of herding present only during the crisis
+periods. These results are in line with the findings of previous studies
+that document the dynamic nature of herding effects and that herding is
+closely related to crisis periods which leads to our subsequent
+analysis.
+
+Table~\ref{tbl-ols_crisis} reports the ordinary least squares results
+for the benchmark model in Equation~\ref{eq-csad2} employing the US
+industry returns both at aggregate level and at an industry level during
+the pre-defined four crises periods: the Great Depression, Dot-com
+Bubble, Great Financial Crisis and the Covid-19 crisis. The estimation
+of the crisis periods is performed according to Equation~\ref{eq-csad3}.
+As stated earlier, herding during crisis periods is verified by means of
+the negative sign of the estimated coefficient \(\gamma_3\). The results
+reported in Table~\ref{tbl-ols_crisis} point to the presence of
+significant herding effects for all industries examined during the four
+crisis periods. In particular, we find that all industries experience
+herding during the Dot-com Bubble and the Global Financial Crisis, while
+three out of five industries display strong herding effects during the
+Great Depression and Covid periods. These findings therefore confirm the
+close association between herding and heightened uncertainty during
+crisis periods.
+
+\subsection{Fundamental vs.~non-fundamental
+herding}\label{fundamental-vs.-non-fundamental-herding}
+
+Earlier studies on herding including \citet{christie1995following} and
+\citet{Bikhchandani2001} argue that herding can develop intentionally as
+investors to suppress their private information and follow the market
+consensus. However, as \citet{ali2023anti} note, spurious herding can
+occur as a result of investors' common, rational responses to public
+information, implying an informationally efficient market where
+investors collectively react to public information. Accordingly,
+following the relevant literature that attempts to isolate intentional
+from spurious herding for institutional investors
+\citep{holmes2013herding} and for stock market investors
+\citep{galariotis2015herding} we estimate Equation~\ref{eq-nonfundaherd}
+and Equation~\ref{eq-fundaherd} using the constructed CSAD series based
+on non-fundamental related and fundamental information.
+Table~\ref{tbl-ols_fund} presents the results of the estimated
+coefficients that capture the existence of intentional and spurious
+herding through the coefficient \(\gamma_2\) that is presented in the
+last column of Table~\ref{tbl-ols_fund}. We observe that herding
+develops mainly as a response fundamental market information, indicated
+by the significant and negative herding coefficients reported in the top
+column. This finding supports the earlier results by
+\citet{choi2015institutional} for international stock markets that
+herding is more likely to be driven by fundamental information. Herding
+on fundamentals is evident for the whole market and for three out of
+five industries namely Consumables, Manufacturing and Others. However,
+if we turn our attention to intentional herding, we observe some
+evidence of intentional anti-herding particularly in Health related
+industries. The evidence of fundamental herding is further confirmed
+graphically in Figure~\ref{fig-rol_fundamental} with the estimated
+herding coefficient falling into the negative territory largely during
+market crisis periods, in line with the evidence reported in the
+previous section. At the same time, the estimated herding coefficients
+plotted in Figure~\ref{fig-rol_nonfundamental} show stronger evidence of
+intentional anti-herding, particularly during the post-2000 period
+across all industries, suggesting that non-fundamental factors might
+drive investors towards anti-herding tendencies as well.
+
+Focusing on the crisis periods, the results reported in
+Table~\ref{tbl-ols_crisis_fund} show that periods of market crisis are
+often plagued with both types of herding with investors displaying herd
+behavior on both fundamental and non-fundamental information,
+particularly during the Great Depression, the Global Financial Crisis
+and Covid-19 periods. The only exception is the Dot-com bubble period
+during which investors engage in intentional herding since the
+coefficient of interest \(\gamma_3\) appears negative and strongly
+statistically significant across all industries and the market as a
+whole. These results are partly consistent with those reported by
+\citet{galariotis2015herding} who document only non-fundamental herding
+during the sub-prime crisis for the whole market. Overall, our analysis
+points to some degree of heterogeneity in how investors respond to
+crisis periods in that crisis periods can induce spurious or intentional
+herding (or both) depending on the type of market crisis.
+
+\subsection{Industry herding and political
+cycles}\label{industry-herding-and-political-cycles-1}
+
+Having explored spurious and intentional herding formation during normal
+and crisis periods, we next report in Table~\ref{tbl-political} the
+estimates for Equation~\ref{eq-political} to
+Equation~\ref{eq-politicalfund} to examine the role of political cycles
+on herding behaviour across the US industries. As discussed earlier,
+this is motivated by the well-established evidence of a presidential
+cycle in stock market performance in which the stock market dynamics
+respond to partisan politics. Focusing on the coefficient of interest
+\(\lambda_1\), we observe a positive and statistically significant value
+when we measure overall herding for the market as a whole along with
+three other industries namely Consumables, Health and Other. This
+finding reflects greater tendency by investors to engage in herd
+behavior when Democrats are in power, in line with the risk-based
+explanation by \citet{pastor2020political} that associates Democratic
+presidencies with greater risk aversion. The findings from linear
+probability models are further affirmed by the probit results in
+Table~\ref{tbl-probit} reported in the Appendix. In essence, our
+findings establish a direct link between risk aversion and herd behavior
+such that greater aversion to risk induces herd formation in the stock
+market, in line with the earlier evidence by \citet{nath2020investor}
+that risk-aversion is a driving factor behind herding behaviour.
+
+Distinguishing between herding based on fundamental and non-fundamental
+information, we find in Table~\ref{tbl-political} that Democratic
+administrations are more likely to induce spurious herding, implied by
+the positive and significant \(\lambda_1\) estimates for the fundamental
+herding model in three out of five industries.
+\citet{pastor2020political} argue that when risk aversion is high, as
+one would expect to be so during economic crises, voters are more likely
+to elect a Democratic president because they demand more social
+insurance. However, when risk aversion is low, voters are more likely to
+elect a Republican because they are willing to take on more business
+risk. Accordingly, one can argue that greater risk aversion drives
+investors to suppress their private information and follow the market
+consensus based on publicly available market information.
+
+Finally, extending the analysis to the role of non-partisan politics on
+herd formation in the stock market, we observe in
+Table~\ref{tbl-pear_alt} that spurious herding is dominant during
+periods when presidential economic approval is high, particularly for
+Business Services and Health. At the same time, intentional anti-herding
+is also observed mostly for production-based industries during such
+periods, implying heterogeneous effects of partisan politics on industry
+herding. The heterogeneous findings across industries support the prior
+evidence that different industries have differential exposures to
+presidential policies such that industries with greater exposure to
+government spending earn higher returns during Democratic presidencies
+\citep{belo2013government} and industries with greater political
+sensitivity earn higher returns \citep{addoum2016political}.
+Accordingly, one can argue that the significant anti-herding effect of
+presidential economic approval ratings largely on production-based
+industries might reflect investor confidence in economic policies that
+induce some investors to go against the market consensus in those
+industries. Overall, these findings establish a close association
+between partisan politics and investor in financial markets.
+
+\section{Conclusion}\label{conclusion}
+
+The main goal of this study is to explore the role of political effects
+on investor behavior in the stock market, with a particular focus on
+herding behavior. Utilizing static and rolling-window models for U.S
+industries over a long history of data dating back to 1926, we present
+significant evidence of industry herding during crisis periods.
+Distinguishing between spurious and intentional herding, our results
+also show that industry herding is primarily driven by fundamental
+information regarding the stock market, while intentional herding is
+also present , particularly during crisis periods, due to
+non-fundamental market factors. More importantly, we establish a link
+between herd behavior and political factors. We show that herding is
+more prevalent during Democratic administrations, in line with the
+risk-based model of \citet{pastor2020political} that associates
+Democratic presidencies with high risk aversion and thus high risk
+premia in equities. Furthermore, we present evidence of spurious herding
+during periods of high approval of presidential economic policies, while
+intentional anti-herding is also present mostly for production-based
+industries during such periods, implying heterogeneous effects of
+partisan politics on industry herding in line with the prior evidence by
+\citet{belo2013government} and \citet{addoum2016political} that
+different industries have differential exposures to presidential
+policies and government spending. We also observe evidence consistent
+with anti-herding during periods of high presidential economic approval
+ratings, particularly in the case of production-based industries, which
+might reflect investor confidence in economic policies that induce some
+investors to go against the market consensus in those industries. While
+our findings support the earlier evidence that risk-aversion is a
+driving factor of herding behaviour \citep[e.g.][]{nath2020investor},
+they also establish a link between partisan politics and investor
+behavior in financial markets.
+
+Our findings have important implications for policy-makers, and
+regulators who are interested in understanding the role of political
+factors over the dynamics of investor behavior in financial markets.
+Considering the established evidence that herding can drive up
+volatility in financial markets and distort asset prices, regulators and
+policy-makers can work on improving the quality of policy signals
+regarding possible changes or implementation of their economic policies.
+At the same time, risk management requirements can be instituted to
+account for political factors in valuation and risk management models.
+This is especially important given the recent evidence by
+\citet{chen2023presidential} that presidential politics can be a source
+of mispricing in financial markets. Accordingly, our results suggest
+that herding behavior could be a driving factor behind such mispricing
+in asset valuations. For future work, it could be interesting to extend
+our work to international stock markets as well different asset classes
+including bonds and commodities. Nevertheless, our work could be a
+starting point to explore the role of partisan politics on investor
+behavior and how this relationship can result in informational
+inefficiencies in financial markets.
+
+\newpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\renewcommand{\bibsection}{}
+\bibliography{references.bib}
 
 \newpage
 
@@ -687,7 +943,7 @@ herding effects in the Manufacturing sector, an estimated value of
 
 \begin{longtable}[l]{|p{1.38in}|p{1.70in}|p{1.70in}|p{1.70in}}
 
-\caption{\label{tbl-ols}Industry herding ols results}
+\caption{\label{tbl-ols}Industry herding: Benchmark model}
 
 \tabularnewline
 
@@ -846,62 +1102,6 @@ herding effects in the Manufacturing sector, an estimated value of
 
 \renewcommand*{\arraystretch}{1}
 
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_gen-1.png}
-
-}
-
-\caption{\label{fig-rol_gen}Industry herding rolling regressions with
-250 day window. Note: The perforated lines represents a 5\% level of
-significance.}
-
-\end{figure}%
-
-Following previous studies that highlight the dynamic nature of herding
-effect \citep{babalos2015commodity, klein2013time, mohamad2022birds} we
-have estimated Equation~\ref{eq-csad2} using a rolling window estimation
-period of 250 days for the whole period of analysis.
-Figure~\ref{fig-rol_gen} presents the graphical illustration of the
-results. In particular, we can see the time evolution of the t-statistic
-of the estimated coefficients with the t statistic of \(\gamma_2\) being
-at the epi-center of our focus. Contrary to previous findings using the
-static approach, the rolling window analysis reveals substantial
-anti-herding effects for the whole market (all industries) and for a
-number of industries, with periods of herding being present only during
-the crisis periods. The results are in line with the findings of
-previous studies that document the dynamic nature of herding effects,
-that herding is closely related to crisis periods. We focus on this
-point in the next section.
-
-\subsection{US industry herding in periods of financial
-crises}\label{us-industry-herding-in-periods-of-financial-crises}
-
-Table~\ref{tbl-ols_crisis} reports the ordinary least squares results of
-Equation~\ref{eq-csad2} employing the US industry returns both at
-aggregate level and at an industry level during the pre-defined four
-crises periods: the Great Depression, Dot-com Bubble, Great Financial
-Crisis and the covid crisis. The estimation of the crisis periods is
-according to Equation~\ref{eq-csad3}. As stated earlier, herding during
-crisis periods is verified by means of the negative sign of the
-estimated coefficient \(\gamma_3\). The results point to the existence
-of significant herding effects for all industries employed during the
-four crisis periods. In particular, during the Great Depression herding
-is present when we employ all industries while across industries we
-document herding in three out of five industries namely Business
-services, Consumables and Other display strong herding effects. Health
-industry displays weak evidence of positive or anti-herding behaviour.
-Therefore, herding persists for all industries during the other four
-crisis periods.
-
-Figure~\ref{fig-rol_crisis_gd} to Figure~\ref{fig-rol_crisis_cv} plot
-the results of the rolling window estimation of 250 days for
-Equation~\ref{eq-csad3} during the above mentioned crisis periods. These
-plots confirm the herding effects observed in the static results above,
-that herding was mainly present during crisis periods.
-
 \newpage
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
@@ -918,7 +1118,7 @@ that herding was mainly present during crisis periods.
 
 \begin{longtable}[l]{|p{0.78in}|p{1.10in}|p{1.10in}|p{1.10in}|p{1.10in}|p{1.10in}}
 
-\caption{\label{tbl-ols_crisis}Industry herding in crisis periods}
+\caption{\label{tbl-ols_crisis}Industry herding during crisis periods}
 
 \tabularnewline
 
@@ -1121,87 +1321,6 @@ that herding was mainly present during crisis periods.
 
 \newpage
 
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_crisis_gd-1.png}
-
-}
-
-\caption{\label{fig-rol_crisis_gd}Industry herding during the Great
-Depression using a 250-day rolling window. Note: The perforated lines
-represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_crisis_db-1.png}
-
-}
-
-\caption{\label{fig-rol_crisis_db}Industry herding during the Dot-com
-Bubble using a 250-day rolling window. Note: The perforated lines
-represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_crisis_fc-1.png}
-
-}
-
-\caption{\label{fig-rol_crisis_fc}Industry herding during the Financial
-Crisis using a 250-day rolling window. Note: The perforated lines
-represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_crisis_cv-1.png}
-
-}
-
-\caption{\label{fig-rol_crisis_cv}Industry herding during the Covid
-Crisis using a 250-day rolling window. Note: The perforated lines
-represents a 5\% level of significance.}
-
-\end{figure}%
-
-\subsection{The role of fundamental information in US industry
-herding}\label{the-role-of-fundamental-information-in-us-industry-herding}
-
-\subsubsection{In normal times}\label{in-normal-times}
-
-Following relevant literature that attempts to isolate intentional from
-spurious herding \citetext{\citealp[ for institutional
-investors]{holmes2013herding}; \citealp[ for stock market
-investors]{galariotis2015herding}} we estimate
-Equation~\ref{eq-nonfundaherd} and Equation~\ref{eq-fundaherd} for the
-non-fundamental related and fundamental related Cross Sectional Absolute
-Deviation during non-crisis period. Table~\ref{tbl-ols_fund} presents
-the results of the estimated coefficients that capture the existence of
-intentional and spurious herding through the coefficient \(\gamma_2\)
-that is presented in the last column of Table~\ref{tbl-ols_fund}. It is
-worth mentioning that herding on fundamentals is evident for the whole
-market and for three out of five industries namely Consumables,
-Manufacturing and Other. However, if we turn our attention to
-intentional herding, we observe no significant herding behavior across
-no industry or the market whatsoever. Figure~\ref{fig-rol_fundamental}
-and Figure~\ref{fig-rol_nonfundamental} plot the time evolution of
-coefficients of interest along with the t-statistic using a 250-day
-rolling window analysis for fundamental and non-fundamental herding
-during non-crisis period.
-
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
 \global\setlength{\Oldtabcolsep}{\tabcolsep}
@@ -1217,7 +1336,7 @@ during non-crisis period.
 \begin{longtable}[l]{|p{1.28in}|p{1.60in}|p{1.60in}|p{1.60in}}
 
 \caption{\label{tbl-ols_fund}Industry herding on fundamental
-information}
+vs.~non-fundamental information}
 
 \tabularnewline
 
@@ -1334,57 +1453,6 @@ information}
 
 \renewcommand*{\arraystretch}{1}
 
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_fundamental-1.png}
-
-}
-
-\caption{\label{fig-rol_fundamental}Industry herding on fundamental
-information using a 250-day rolling window. Note: The perforated lines
-represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_nonfundamental-1.png}
-
-}
-
-\caption{\label{fig-rol_nonfundamental}Industry herding on
-non-fundamental information using a 250-day rolling window. Note: The
-perforated lines represents a 5\% level of significance.}
-
-\end{figure}%
-
-\subsubsection{During crisis periods}\label{during-crisis-periods}
-
-Table~\ref{tbl-ols_crisis_fund} presents the results of herding on
-fundamental and non-fundamental information for US industries during the
-four crisis periods. The coefficient of interest is \(\gamma_3\) which
-in cases of negative and statistically significant reflects herding
-behaviour. Observing the results of Table~\ref{tbl-ols_crisis_fund} some
-interesting findings emerge. Firstly, during the Great Depression
-investors appear to herd both on fundamental and non-fundamental
-information at market level.
-
-For industries, we document a unintentional herding across all
-industries during the Great Depression where intentional herding is
-evident only for Business Services, Consumable and Other. Secondly, a
-striking result refers to the behaviour of investors in US industries
-during Dot-com bubble. According to the estimated results, investors
-appear to herd only intentionally since the coefficient of interest
-\(\gamma_3\) appears negative and strongly statistically significant
-across all industries and the market as a whole. Moving more recently to
-the Global Financial Crisis (GFC), our results highlight substantial
-evidence of spurious and intentional herding for all industries and for
-the market as a whole.
-
 \newpage
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
@@ -1401,8 +1469,8 @@ the market as a whole.
 
 \begin{longtable}[l]{|p{0.78in}|p{1.10in}|p{1.10in}|p{1.10in}|p{1.10in}|p{1.10in}}
 
-\caption{\label{tbl-ols_crisis_fund}Industry herding on fundamental
-information in crisis periods}
+\caption{\label{tbl-ols_crisis_fund}Fundamental vs.~non-fundamental
+herding during crisis periods}
 
 \tabularnewline
 
@@ -1771,155 +1839,6 @@ information in crisis periods}
 
 \renewcommand*{\arraystretch}{1}
 
-The only exception is the Business sector that displays no spurious
-herding during GFC. Our results are partly consistent with those
-reported by \citet{galariotis2015herding} who documented only
-non-fundamental herding during sub-prime crisis for the whole market.
-However, we must be cautious with the comparison since the defined
-crisis periods might vary. Spurious and intentional herding of investors
-is also present during covid crisis period except for the Health
-industry that under the non-fundamental formulation we document an
-anti-herding behaviour \citep{nath2020investor}.
-Figure~\ref{fig-rol_fundamental_gd} to
-Figure~\ref{fig-rol_fundamental_cv} plot the time evolution of the
-estimated coefficients of Equation~\ref{eq-fundaherd} during the four
-crisis periods while Figure~\ref{fig-rol_nonfundamental_gd} to
-Figure~\ref{fig-rol_nonfundamental_fc} present the behaviour of the
-rolling window estimated coefficients for the non-fundamental herding
-equation.
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_fundamental_gd-1.png}
-
-}
-
-\caption{\label{fig-rol_fundamental_gd}Industry herding on fundamental
-information during the Great depression using a 250-day rolling window.
-Note: The perforated lines represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_fundamental_db-1.png}
-
-}
-
-\caption{\label{fig-rol_fundamental_db}Industry herding on fundamental
-information during the Dot-com bubble using a 250-day rolling window.
-Note: The perforated lines represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_fundamental_fc-1.png}
-
-}
-
-\caption{\label{fig-rol_fundamental_fc}Industry herding on fundamental
-information during the Financial crisis using a 250-day rolling window.
-Note: The perforated lines represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_fundamental_cv-1.png}
-
-}
-
-\caption{\label{fig-rol_fundamental_cv}Industry herding on fundamental
-information during the Covid crisis using a 250-day rolling window.
-Note: The perforated lines represents a 5\% level of significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_nonfundamental_gd-1.png}
-
-}
-
-\caption{\label{fig-rol_nonfundamental_gd}Industry herding on
-non-fundamental information during the Great depression using a 250-day
-rolling window. Note: The perforated lines represents a 5\% level of
-significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_nonfundamental_db-1.png}
-
-}
-
-\caption{\label{fig-rol_nonfundamental_db}Industry herding on
-non-fundamental information during the Dot-com bubble using a 250-day
-rolling window. Note: The perforated lines represents a 5\% level of
-significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_nonfundamental_fc-1.png}
-
-}
-
-\caption{\label{fig-rol_nonfundamental_fc}Industry herding on
-non-fundamental information during the Financial crisis using a 250-day
-rolling window. Note: The perforated lines represents a 5\% level of
-significance.}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_nonfundamental_cv-1.png}
-
-}
-
-\caption{\label{fig-rol_nonfundamental_cv}Industry herding on
-non-fundamental information during the Covid crisis using a 250-day
-rolling window. Note: The perforated lines represents a 5\% level of
-significance.}
-
-\end{figure}%
-
-\subsection{Industry herding and political
-cycles}\label{industry-herding-and-political-cycles-1}
-
-Lastly, Table~\ref{tbl-political} presents the results of the estimated
-Equation~\ref{eq-political}, Equation~\ref{eq-politicalnonfund} and
-Equation~\ref{eq-politicalfund} in an attempt to answer the question
-whether herding behaviour across US industries is related to political
-cycles. The coefficient of interest \(\lambda_1\) assumes a positive and
-a statistically significant value when we measure overall herding for
-All Industries and three other industries namely Consumables, Health and
-Other. This finding reflects a tendency of herding to be stronger when
-Democrats are in power while herding seems to diminish when Democrats
-are in power only for Business services. These linear probability model
-results are further affirmed by the probit results in
-Table~\ref{tbl-probit}.
-
 \newpage
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
@@ -2095,18 +2014,6 @@ Table~\ref{tbl-probit}.
 
 \renewcommand*{\arraystretch}{1}
 
-As an attempt to isolate overall to herding due to fundamentals and
-non-fundamentals we find that in the former case herding becomes
-stronger during Democratic administration for three out of five
-industries and for fundamental herding while in the latter case herding
-tends to be smaller when democratic party is in power for Business
-services, Manufacturing and Other. \citet{pastor2020political} state
-convincingly: 'when risk aversion is high, as during economic crises,
-voters are more likely to elect a Democratic president because they
-demand more social insurance. When risk aversion is low, voters are more
-likely to elect a Republican because they want to take more business
-risk. Therefore, risk aversion is higher under Democrats.
-
 \newpage
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
@@ -2123,7 +2030,8 @@ risk. Therefore, risk aversion is higher under Democrats.
 
 \begin{longtable}[l]{|p{0.78in}|p{1.10in}|p{1.10in}|p{1.10in}|p{1.10in}|p{1.10in}}
 
-\caption{\label{tbl-pear_alt}Herding and PEAR.}
+\caption{\label{tbl-pear_alt}Herding and presidential economic approval
+ratings.}
 
 \tabularnewline
 
@@ -2141,7 +2049,49 @@ risk. Therefore, risk aversion is higher under Democrats.
 
 
 
-\multicolumn{6}{>{\centering}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Fundamental}}}} \\
+\multicolumn{6}{>{\centering}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{General\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.004150***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.010482***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000695}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001583}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00014}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000348***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000663***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000026}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000051}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000009}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001063***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002729***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000151}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000585*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000292***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000015}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000106}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00006}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000860***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001671***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000205}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000320}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.78in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001401***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.004215***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000197}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000460}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} \\
+
+
+
+
+
+\multicolumn{6}{>{\centering}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Fundamental\ Herding}}}} \\
 
 
 
@@ -2183,7 +2133,7 @@ risk. Therefore, risk aversion is higher under Democrats.
 
 
 
-\multicolumn{6}{>{\centering}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Non\ Fundamental}}}} \\
+\multicolumn{6}{>{\centering}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Non-Fundamental\ Herding}}}} \\
 
 
 
@@ -2225,7 +2175,7 @@ risk. Therefore, risk aversion is higher under Democrats.
 
 
 
-\multicolumn{6}{>{\raggedright}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{Note:\ ***\ =\ p\ value\ <\ 0.01,\ **\ =\ 0.01\ <\ p\ value\ <\ 0.05,\ *\ =\ 0.05\ <\ p\ value\ <\ 0.1.}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ The\ regressions\ are\ based\ on\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{fund} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m, t}^2 + \gamma_4D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{.\ PEAR\ is\ the\ presidential\ economic\ approval\ rating\ as\ described\ in\ the\ data\ section\ above.\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{fund} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m, t}^2 + \gamma_4D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ was\ estimated\ using\ OLS\ with\ robust\ standard\ errors.}}}} \\
+\multicolumn{6}{>{\raggedright}m{\dimexpr 6.28in+10\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{Note:\ ***\ =\ p\ value\ <\ 0.01,\ **\ =\ 0.01\ <\ p\ value\ <\ 0.05,\ *\ =\ 0.05\ <\ p\ value\ <\ 0.1.}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ The\ regressions\ are\ based\ on\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m, t}^2 + \gamma_4D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{,\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{FUND} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m, t}^2 + \gamma_4D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{,\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{and\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{NONFUND} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m, t}^2 + \gamma_4D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{.\ PEAR\ is\ the\ presidential\ economic\ approval\ rating\ as\ described\ in\ the\ data\ section\ above.\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ All\ equations\ were\ estimated\ using\ OLS\ with\ robust\ standard\ errors.}}}} \\
 
 \ascline{1pt}{000000}{1-6}
 
@@ -2240,54 +2190,404 @@ risk. Therefore, risk aversion is higher under Democrats.
 
 \renewcommand*{\arraystretch}{1}
 
-\section{Conclusion}\label{conclusion}
+\newpage
 
-The study investigates herding behaviour in the US market across
-different periods and industries using static and rolling-window models.
-The results suggest that herding behaviour is more pronounced during
-crisis periods, that is, in general and in industries. The findings are
-consistent with the literature that suggests that herding behaviour was
-more pronounced during periods of high uncertainty and risk aversion.
-The results also suggest that herding behaviour was not particular
-pronounced in one industry versus another. A departure from the thinking
-that fast moving industries such as business services which may be
-considered more sensitive to market conditions, would have more
-prevalent herding behaviour. This suggests that investors tend to herd
-to broader market conditions that industry specific market conditions.
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
-A novel aspect of the study is the investigation of the relationship
-between herding behaviour and presidential approval ratings. The results
-suggest that the presidential approval ratings are not significantly
-related to herding behaviour in general, but it seems the approval
-ratings are mainly significant only in `production' industries. This
-results are consistent with the party term results above which showed
-that herding was more pronounced during Democratic administration. The
-results suggest, similar to \citet{nath2020investor}, that risk-aversion
-is a driving factor of herding behaviour in these industries.
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
 
-The results have important implications for policy-makers, and
-regulators who are interested in understanding the dynamics of herding
-behaviour in the US market. For example, in order to mitigate the
-effects of herding behaviour, regulators and policy-makers can improve
-market transparency, risk management requirements, and investor
-educational initiatives, amongst others. These initiatives are still
-relevant given that the results indicate similar herding behaviour in
-the recent Covid-crisis compared to previous market crises.
+\setlength{\tabcolsep}{0pt}
 
-The study focuses on the US market, and the results may not be
-generalizable to other markets. However, the study provides valuable
-insights into the dynamics of herding behaviour in the US market and
-highlights the importance of considering market conditions and
-sector-specific dynamics in understanding investor behaviour, and its
-implications for market stability and efficiency.
+\renewcommand*{\arraystretch}{0.4}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[l]{|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}}
+
+\caption{\label{tbl-pear_approval}Herding and presidential economic
+approval ratings in different presidential terms.}
+
+\tabularnewline
+
+\ascline{0.75pt}{000000}{1-8}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Industry}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_0$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_1$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_2$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_3$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_4$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_5$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_6$}}}} \\
+
+\ascline{0.75pt}{000000}{1-8}\endfirsthead 
+
+\ascline{0.75pt}{000000}{1-8}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Industry}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_0$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_1$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_2$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_3$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_4$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_5$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_6$}}}} \\
+
+\ascline{0.75pt}{000000}{1-8}\endhead
+
+
+
+\multicolumn{8}{>{\centering}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{General\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001669**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.007912***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000853}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00084}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00124}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00210*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001098}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000191***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000417***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000040}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000028}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00004}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000110*}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000472**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002009**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000224}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00028}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00035}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00067**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000412}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000162**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000101}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000290*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001417***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000194}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00020}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00023}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00036*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000126}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000504}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.003139***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000261}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00035}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00036}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00072**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000347}}}} \\
+
+
+
+
+
+\multicolumn{8}{>{\centering}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Fundamental\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.007102***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000849***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00010**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000190*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000166**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00020*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000022}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000621***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000019}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000005}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000014***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000002}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001878***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000257***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000060*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000054**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00009*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000002}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000252***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000002}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000006***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001394***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000191***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00002***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000037**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000025**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000004}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002544***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000447***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00004***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000058**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000042*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000003}}}} \\
+
+
+
+
+
+\multicolumn{8}{>{\centering}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Non-Fundamental\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00543***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.007062**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000961}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00103}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00141}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00189*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001075}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00042***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000398***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000045}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000023}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00005}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000107*}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00140***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001752**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000259}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00034}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00040}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00057*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000410}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00009}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00001}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000103}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00110***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001225***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000216}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00023}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00026}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00033*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000122}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00203***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002691**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000310*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00041}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00040}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00065**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000343}}}} \\
+
+\ascline{0.75pt}{000000}{1-8}
+
+
+
+\multicolumn{8}{>{\raggedright}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{Note:\ ***\ =\ p\ value\ <\ 0.01,\ **\ =\ 0.01\ <\ p\ value\ <\ 0.05,\ *\ =\ 0.05\ <\ p\ value\ <\ 0.1.}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ The\ regressions\ are\ based\ on\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{Democrat}D_{high}R_{m, t}^2 + \gamma_4D_{Democrat}D_{low}R_{m, t}^2  + \gamma_5D_{Republican}D_{high}R_{m, t}^2 + \gamma_6D_{Republican}D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{,\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{FUND} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{Democrat}D_{high}R_{m, t}^2 + \gamma_4D_{Democrat}D_{low}R_{m, t}^2  + \gamma_5D_{Republican}D_{high}R_{m, t}^2 + \gamma_6D_{Republican}D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{,\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{and\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{NONFUND} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{Democrat}D_{high}R_{m, t}^2 + \gamma_4D_{Democrat}D_{low}R_{m, t}^2  + \gamma_5D_{Republican}D_{high}R_{m, t}^2 + \gamma_6D_{Republican}D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{.\ PEAR\ is\ the\ presidential\ economic\ approval\ rating\ as\ described\ in\ the\ data\ section\ above.\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ All\ equations\ were\ estimated\ using\ OLS\ with\ robust\ standard\ errors.}}}} \\
+
+\ascline{1pt}{000000}{1-8}
+
+
+\end{longtable}
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
 
 \newpage
 
-\section*{References}\label{references}
-\addcontentsline{toc}{section}{References}
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
-\renewcommand{\bibsection}{}
-\bibliography{references.bib}
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{0pt}
+
+\renewcommand*{\arraystretch}{0.4}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[l]{|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}|p{0.75in}}
+
+\caption{\label{tbl-par_approval}Herding and presidential approval
+ratings in different presidential terms.}
+
+\tabularnewline
+
+\ascline{0.75pt}{000000}{1-8}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Industry}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_0$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_1$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_2$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_3$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_4$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_5$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_6$}}}} \\
+
+\ascline{0.75pt}{000000}{1-8}\endfirsthead 
+
+\ascline{0.75pt}{000000}{1-8}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Industry}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_0$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_1$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_2$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_3$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_4$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_5$}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{$\gamma_6$}}}} \\
+
+\ascline{0.75pt}{000000}{1-8}\endhead
+
+
+
+\multicolumn{8}{>{\centering}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{General\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001669**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.007912***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000853}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00084}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00124}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00210*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001098}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000191***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000417***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000040}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000028}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00004}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000110*}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000472**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002009**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000224}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00028}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00035}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00067**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000412}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000162**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000101}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000290*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001417***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000194}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00020}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00023}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00036*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000126}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000504}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.003139***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000261}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00035}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00036}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00072**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000347}}}} \\
+
+
+
+
+
+\multicolumn{8}{>{\centering}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Fundamental\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.007102***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000849***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00010**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000190*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000166**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00020*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000022}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000621***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000019}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000005}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000014***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000002}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001878***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000257***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000060*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000054**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00009*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000002}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000252***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000002}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000006***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00000}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001394***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000191***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00002***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000037**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000025**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000004}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002544***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000447***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00004***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000058**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000042*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000003}}}} \\
+
+
+
+
+
+\multicolumn{8}{>{\centering}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Non-Fundamental\ Herding}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{All\ industries}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00543***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.007062**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000961}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00103}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00141}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00189*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001075}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Business\ services}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00042***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000398***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000045}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000023}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00005}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000107*}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Consumables}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00140***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001752**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000259}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00034}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00040}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00057*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000410}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Health}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00009}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00001}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000103}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00003}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00007*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00001}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Manufacturing}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00110***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.001225***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000216}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00023}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00026}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00033*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000122}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Other}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00203***}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.002691**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000310*}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00041}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00040}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{-0.00065**}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 0.75in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{0.000343}}}} \\
+
+\ascline{0.75pt}{000000}{1-8}
+
+
+
+\multicolumn{8}{>{\raggedright}m{\dimexpr 6in+14\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{Note:\ ***\ =\ p\ value\ <\ 0.01,\ **\ =\ 0.01\ <\ p\ value\ <\ 0.05,\ *\ =\ 0.05\ <\ p\ value\ <\ 0.1.}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ The\ regressions\ are\ based\ on\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{Democrat}D_{high}R_{m, t}^2 + \gamma_4D_{Democrat}D_{low}R_{m, t}^2  + \gamma_5D_{Republican}D_{high}R_{m, t}^2 + \gamma_6D_{Republican}D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{,\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{FUND} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{Democrat}D_{high}R_{m, t}^2 + \gamma_4D_{Democrat}D_{low}R_{m, t}^2  + \gamma_5D_{Republican}D_{high}R_{m, t}^2 + \gamma_6D_{Republican}D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{,\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{and\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{$CSAD_{NONFUND} = \gamma_0 + \gamma_1R_{m, t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{Democrat}D_{high}R_{m, t}^2 + \gamma_4D_{Democrat}D_{low}R_{m, t}^2  + \gamma_5D_{Republican}D_{high}R_{m, t}^2 + \gamma_6D_{Republican}D_{low}R_{m, t}^2 + \epsilon_{t}$}}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{.\ PAR\ is\ the\ presidential\ economic\ approval\ rating\ as\ described\ in\ the\ data\ section\ above.\ }}}\textcolor[HTML]{000000}{\fontsize{7}{0}\selectfont{\global\setmainfont{Helvetica}{\ All\ equations\ were\ estimated\ using\ OLS\ with\ robust\ standard\ errors.}}}} \\
+
+\ascline{1pt}{000000}{1-8}
+
+
+\end{longtable}
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\newpage
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_gen-1.png}
+
+}
+
+\caption{\label{fig-rol_gen}Industry herding over time. Note: The
+perforated lines represents a 5\% level of significance.}
+
+\end{figure}%
+
+\newpage
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_fundamental-1.png}
+
+}
+
+\caption{\label{fig-rol_fundamental}Industry herding on fundamental
+information over time. Note: The perforated lines represents a 5\% level
+of significance.}
+
+\end{figure}%
+
+\newpage
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{1929_herding_draft_files/figure-pdf/fig-rol_nonfundamental-1.png}
+
+}
+
+\caption{\label{fig-rol_nonfundamental}Industry herding on
+non-fundamental information over time. Note: The perforated lines
+represents a 5\% level of significance.}
+
+\end{figure}%
 
 \setcounter{section}{0}
 \renewcommand{\thesection}{\Alph{section}}
@@ -2301,70 +2601,6 @@ implications for market stability and efficiency.
 \newpage
 
 \section{Appendix}\label{appendix}
-
-\subsection{Industry data}\label{industry-data}
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-cons-1.png}
-
-}
-
-\caption{\label{fig-cons}Consumables returns}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-health-1.png}
-
-}
-
-\caption{\label{fig-health}Health returns}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-manufacturing-1.png}
-
-}
-
-\caption{\label{fig-manufacturing}Manufacturing returns}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-business-1.png}
-
-}
-
-\caption{\label{fig-business}Business services returns}
-
-\end{figure}%
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-mines-1.png}
-
-}
-
-\caption{\label{fig-mines}Other returns}
-
-\end{figure}%
-
-\subsection{Industry groupings}\label{industry-groupings}
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -2515,75 +2751,7 @@ implications for market stability and efficiency.
 
 \renewcommand*{\arraystretch}{1}
 
-\subsection{Crises periods}\label{crises-periods}
-
-\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
-
-\global\setlength{\Oldtabcolsep}{\tabcolsep}
-
-\setlength{\tabcolsep}{0pt}
-
-\renewcommand*{\arraystretch}{0.4}
-
-
-
-\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
-
-\begin{longtable}[l]{|p{2.18in}|p{1.95in}|p{1.95in}}
-
-\caption{\label{tbl-crises_description}Crises periods. Source: Wikipedia
-(2023)}
-
-\tabularnewline
-
-\ascline{0.75pt}{000000}{1-3}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Start}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{End}}}} \\
-
-\ascline{0.75pt}{000000}{1-3}\endfirsthead 
-
-\ascline{0.75pt}{000000}{1-3}
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Start}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{End}}}} \\
-
-\ascline{0.75pt}{000000}{1-3}\endhead
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Great\ Depression}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{1929-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{1939-12-31}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Dot-com\ Bubble}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{1997-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2003-12-31}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Financial\ Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2007-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2009-12-31}}}} \\
-
-
-
-
-
-\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Covid\ Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2020-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2021-12-31}}}} \\
-
-\ascline{0.75pt}{000000}{1-3}
-
-
-\end{longtable}
-
-\arrayrulecolor[HTML]{000000}
-
-\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
-
-\global\setlength{\tabcolsep}{\Oldtabcolsep}
-
-\renewcommand*{\arraystretch}{1}
-
-\subsection{Descriptive statistics}\label{descriptive-statistics}
+\newpage
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -3022,21 +3190,75 @@ implications for market stability and efficiency.
 
 \renewcommand*{\arraystretch}{1}
 
-\subsection{Fama-French factors}\label{fama-french-factors}
+\newpage
 
-\begin{figure}[H]
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
-\centering{
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
 
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-famafrench-1.png}
+\setlength{\tabcolsep}{0pt}
 
-}
+\renewcommand*{\arraystretch}{0.4}
 
-\caption{\label{fig-famafrench}Fama-French Factors}
 
-\end{figure}%
 
-\subsection{Presidential terms}\label{presidential-terms}
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[l]{|p{2.18in}|p{1.95in}|p{1.95in}}
+
+\caption{\label{tbl-crises_description}Crises periods. Source: Wikipedia
+(2023)}
+
+\tabularnewline
+
+\ascline{0.75pt}{000000}{1-3}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Start}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{End}}}} \\
+
+\ascline{0.75pt}{000000}{1-3}\endfirsthead 
+
+\ascline{0.75pt}{000000}{1-3}
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Start}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{End}}}} \\
+
+\ascline{0.75pt}{000000}{1-3}\endhead
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Great\ Depression}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{1929-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{1939-12-31}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Dot-com\ Bubble}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{1997-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2003-12-31}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Financial\ Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2007-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2009-12-31}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedright}m{\dimexpr 2.18in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{Covid\ Crisis}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2020-01-01}}}} & \multicolumn{1}{>{\centering}m{\dimexpr 1.95in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{7}{14}\selectfont{\global\setmainfont{Times New Roman}{2021-12-31}}}} \\
+
+\ascline{0.75pt}{000000}{1-3}
+
+
+\end{longtable}
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\newpage
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -3188,22 +3410,6 @@ implications for market stability and efficiency.
 \renewcommand*{\arraystretch}{1}
 
 \newpage
-
-\subsection{Market volatility}\label{market-volatility}
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-volatility-1.png}
-
-}
-
-\caption{\label{fig-volatility}Market volatility}
-
-\end{figure}%
-
-\subsection{Probit estimation}\label{probit-estimation}
 
 \global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
 
@@ -3377,29 +3583,6 @@ implications for market stability and efficiency.
 \global\setlength{\tabcolsep}{\Oldtabcolsep}
 
 \renewcommand*{\arraystretch}{1}
-
-\subsection{Presidential approval
-ratings}\label{presidential-approval-ratings}
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{1929_herding_draft_files/figure-pdf/fig-approval-1.png}
-
-}
-
-\caption{\label{fig-approval}Presidential approval ratings (Daily).}
-
-\end{figure}%
-
-\begin{verbatim}
-[1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
-\end{verbatim}
-
-\begin{verbatim}
-[1] TRUE
-\end{verbatim}
 
 
 

@@ -15,10 +15,9 @@ artifacts_party_dummy.rds \
 artifacts_presidential_ratings.rds \
 artifacts_presidential_terms.rds \
 artifacts_returns_data.rds \
-artifacts_returns_graphs_equal.rds \
-artifacts_returns_graphs_weighted_part_1.rds \
-artifacts_returns_graphs_weighted_part_2.rds \
-artifacts_volatility.rds  
+artifacts_volatility.rds \
+artifacts_par_models.rds \
+artifacts_alternative_ratings_models.rds
 
 ## Generating the manuscript 
 1929_herding_draft.pdf: 1929_herding_draft.qmd $(INPUT_TARGETS)
@@ -67,6 +66,14 @@ artifacts_fundamental_herding.rds \
 artifacts_volatility.rds
 	Rscript $<
 
+artifacts_par_models.rds: 12_par_models.R artifacts_general_herding.rds artifacts_fundamental_herding.rds \
+artifacts_presidential_ratings.rds
+	Rscript $<
+
+artifacts_alternative_ratings_models.rds: 13_fund_herding_political_models.R artifacts_general_herding.rds \
+artifacts_general_herding.rds \
+artifacts_fama_french.rds 
+	Rscript $<
 
 
 
