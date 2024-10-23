@@ -639,7 +639,7 @@ approval_term$models$combined_pear_tbl %>%
                  style = "solid",
                  width = 1
                )) %>% 
-  autofit(add_w = -0.6)
+  autofit(add_w = -0.5)
   
   
 
@@ -713,7 +713,7 @@ approval_term$models$combined_par_tbl %>%
                  style = "solid",
                  width = 1
                )) %>% 
-  autofit(add_w = -0.6)
+  autofit(add_w = -0.5)
   
   
 

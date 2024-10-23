@@ -103,7 +103,7 @@ formula <-  as.formula(CSAD_nonfund ~ abs(`Market Return`) +
                          D_dummy:PAR_low_dummy:I(`Market Return` ^ 2) +
                          R_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
                          R_dummy:PAR_low_dummy:I(`Market Return` ^ 2)
-                       )
+                       ) 
 par_ols_full_nonfundamental_tbl <- 
   combined_tbl %>% 
   dplyr::select(-Crisis) %>% 
@@ -118,10 +118,10 @@ par_ols_full_nonfundamental_tbl
 ## Overall herding -------------------------------------------------------
 formula <-  as.formula(CSAD ~ abs(`Market Return`) + 
                          I(`Market Return` ^ 2) + 
-                         D_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
-                         D_dummy:PAR_low_dummy:I(`Market Return` ^ 2) +
-                         R_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
-                         R_dummy:PAR_low_dummy:I(`Market Return` ^ 2)
+                         D_dummy:PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         D_dummy:PEAR_low_dummy:I(`Market Return` ^ 2) +
+                         R_dummy:PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         R_dummy:PEAR_low_dummy:I(`Market Return` ^ 2)
                        )
 pear_ols_full_tbl <-
   combined_tbl %>%
@@ -136,10 +136,10 @@ pear_ols_full_tbl
 ## Fundamental -------------------------------------------------------------------
 formula <-  as.formula(CSAD_fund ~ abs(`Market Return`) + 
                          I(`Market Return` ^ 2) + 
-                         D_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
-                         D_dummy:PAR_low_dummy:I(`Market Return` ^ 2) +
-                         R_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
-                         R_dummy:PAR_low_dummy:I(`Market Return` ^ 2)
+                         D_dummy:PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         D_dummy:PEAR_low_dummy:I(`Market Return` ^ 2) +
+                         R_dummy:PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         R_dummy:PEAR_low_dummy:I(`Market Return` ^ 2)
                        )
 pear_ols_full_fundamental_tbl <-
   combined_tbl %>%
@@ -153,10 +153,10 @@ pear_ols_full_fundamental_tbl
 ## Non Fundamental -------------------------------------------------------
 formula <-  as.formula(CSAD_nonfund ~ abs(`Market Return`) + 
                          I(`Market Return` ^ 2) + 
-                         D_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
-                         D_dummy:PAR_low_dummy:I(`Market Return` ^ 2) +
-                         R_dummy:PAR_high_dummy:I(`Market Return` ^ 2) +
-                         R_dummy:PAR_low_dummy:I(`Market Return` ^ 2)
+                         D_dummy:PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         D_dummy:PEAR_low_dummy:I(`Market Return` ^ 2) +
+                         R_dummy:PEAR_high_dummy:I(`Market Return` ^ 2) +
+                         R_dummy:PEAR_low_dummy:I(`Market Return` ^ 2)
                        )
 pear_ols_full_nonfundamental_tbl <- 
   combined_tbl %>% 
