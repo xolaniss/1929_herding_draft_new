@@ -1,0 +1,186 @@
+---
+output:
+  bookdown::pdf_document2:
+    citation_package: natbib
+    fig_caption: yes
+    latex_engine: xelatex
+    number_sections: yes
+    toc: no
+    keep_tex: true
+    includes:
+      in_header: preamble.tex
+      before_body: title.tex
+      after_body: appendix_backcover.tex
+# title: "A Pandoc Markdown Article Starter and Template"
+# thanks: "Replication files are available on the author's Github account..."
+# author:
+# date: "`r format(Sys.time(), '%B %d, %Y')`"
+# abstract:
+#  "This document provides an introduction to R Markdown, argues for its...  \\par \\textbf{Keywords:} one, two, three "
+# fontfamily: mathpazo
+fontsize: 12
+# spacing: double
+documentclass: article
+# classoption: fleqn
+# paper: a4
+# csl: ucl-institute-of-education-harvard.csl
+bibliography: references.bib
+biblio-style: apalike
+natbiboptions: round
+link-citations: yes
+linkcolor: blue!000!black
+urlcolor: blue!000!black
+citecolor: blue!000!black
+linestretch: 1.5
+indent: TRUE
+---
+
+```{r setup}
+#| include=FALSE
+options(scipen=999)
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE, 
+                      dpi = 500, 
+                      fig.pos = "H", 
+                      fig.env= 'figure', 
+                      tab.topcaption = TRUE,
+                      ft.align = "left",
+                      ft.tabcolsep= 0, 
+                      ft.latex.float = "none"
+                      )
+library(tidyverse)
+library(readr)
+library(readxl)
+library(zoo)
+library(magick)
+library(stringi)
+library(patchwork)
+library(xtable)
+library(scales)
+library(rvest)
+library(rebus)
+library(PNWColors)
+library(lubridate)
+library(here)
+library(flextable)
+library(gt)
+library(officer)
+library(officedown)
+library(modelsummary)
+library(sandwich)
+library(lmtest)
+library(stargazer)
+```
+
+```{r}
+#| func
+source(here("Functions","flextable_word.R" ))
+source(here("Functions","modelsummary_pdf.R" ))
+source(here("Functions","borderlines.R" ))
+
+set_flextable_defaults(font.size = 8, 
+                       text.align = "left", 
+                       font.color = "black", 
+                       theme_fun = theme_apa, 
+                       padding = 0,
+                       line_spacing = 0)
+```
+
+```{r}
+#| data,
+#| cache = TRUE
+general_herding <- read_rds(here("Outputs", "artifacts_general_herding.rds"))
+```
+
+# Introduction
+
+# Methodology
+
+@sim2015oil
+
+# Data
+
+```{r}
+#| desc,
+#| tab.cap = "Descriptives"
+
+descriptives <- read_rds(here("Outputs", "artifacts_descriptives.rds"))
+descriptives_tbl <- descriptives$descriptives_tbl
+
+
+descriptives_tbl %>% 
+  as_grouped_data(groups = c("Category")) %>% 
+  as_flextable()  %>% 
+  line_spacing(space = 0) %>% 
+  padding(padding = 0, part = "all") %>% 
+  autofit(add_w = .2)
+
+  
+  
+
+
+```
+
+
+
+\newpage
+# Empirical Results
+
+```{r}
+#| gen,
+#| tab.cap = "General heding"
+
+
+fitted_csad_models <- read_rds(here("Outputs", "artifacts_general_herding.rds")) 
+models <- fitted_csad_models$models$fitted_csad_models
+estimates <- c(
+  "\\gamma_0",
+  "\\gamma_1 ",
+  "\\gamma_2",
+  "N",
+  "R^2",
+  "R^2 Adj"
+)
+
+equation_1 <- as_equation(c("CSAD_{t} = \\gamma_0 + \\gamma_1|R_{m, t}| +  \\gamma_2R_{m, t}^2  + \\epsilon_{t}"))
+
+modelsummary <-  models %>% 
+  modelsummary_pdf(
+    decimals = 4,
+    vcov = "NeweyWest",
+  ) %>% 
+  mk_par(j = 1, i= c(1, 3, 5, 7, 8, 9), value = as_paragraph(as_equation(estimates
+                                                                    )),
+         part = "body") %>%
+  add_footer_row(values = " ", colwidths = 8) %>% 
+  mk_par(i = 1, part = "footer",
+  value = as_paragraph(
+    "Notes:", " The results flow from the ", equation_1,   " equation as defined above. " 
+   )) %>% 
+  autofit(add_w = -1, add_h = 0) 
+  
+modelsummary
+  
+```
+
+
+
+
+\newpage
+
+```{r}
+#| rol,
+#| fig.cap= "CSAD rolling",
+#| fig.height = 4,
+#| cache = TRUE
+
+CSAD_model_rol_gg <- general_herding$graphs$CSAD_model_rol_gg
+CSAD_model_rol_gg
+```
+
+\newpage
+# Conclusion
+
+\newpage
+# References

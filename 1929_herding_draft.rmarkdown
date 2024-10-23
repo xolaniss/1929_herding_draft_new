@@ -1,0 +1,1242 @@
+---
+format:
+  pdf:
+    tbl-cap-location: top
+    dpi: 150
+    fig-pos: "H"
+    number-sections: true
+    cite-method: natbib
+    include-in-header: preamble.tex
+    include-before-body: title.tex
+    keep-tex: true
+    fig-format: png
+    default-image-extension: png
+  # docx:
+  #   reference-doc: new_template_no_numbering.docx
+pdf-engine: lualatex
+monofont: "DejaVu Sans Mono"
+mainfont: "Times New Roman"
+execute: 
+  echo: false
+  warning: false
+  cache: false
+editor: source
+bibliography: references.bib
+biblio-style: apalike
+natbiboptions: round
+link-citations: true
+linkcolor: blue!100!black
+urlcolor: blue!100!black
+citecolor: blue!100!black
+linestretch: 1.5
+indent: TRUE
+---
+
+```{r}
+#| label: setup
+#| include: false
+options(scipen=999)
+knitr::opts_chunk$set(
+                      fig.pos = "H", 
+                      fig.env= 'figure', 
+                      ft.align = "left",
+                      ft.tabcolsep= 0, 
+                      ft.latex.float = "none",
+                      ft.arraystretch = 0.4
+                      )
+library(tidyverse)
+library(readr)
+library(readxl)
+library(zoo)
+library(magick)
+library(stringi)
+library(patchwork)
+library(xtable)
+library(scales)
+library(rvest)
+library(rebus)
+library(PNWColors)
+library(lubridate)
+library(here)
+library(flextable)
+library(officer)
+library(officedown)
+library(modelsummary)
+library(sandwich)
+library(lmtest)
+library(stargazer)
+library(renv)
+```
+
+```{r}
+#| label: func
+source(here("Functions","flextable_word.R" ))
+source(here("Functions","modelsummary_pdf.R" ))
+source(here("Functions","borderlines.R" ))
+
+set_flextable_defaults(font.size = 7, 
+                       text.align = "left", 
+                       font.color = "black", 
+                       theme_fun = theme_apa, 
+                       padding = 0,
+                       line_spacing = 0)
+```
+
+
+
+# Introduction and Literature Review
+
+It is well established that over the recent decades a significant progress has been achieved in explaining the behaviour of financial markets. Probably one of the most influential concepts in the mainstream finance literature is that of market efficiency that was formulated by @fama1970efficient among others. However, market efficiency rests on a series of assumptions that are mostly related to the existence of costly and asymmetric information, agency costs, market frictions such as transaction costs or limits to arbitrage and non-rational economic behaviour. Rational behaviour is a very popular concept among economic agents that is in the epic-enter of many economic models. Since the pioneer work of economist John Keynes who made the notion of ‘animal spirits’ acceptable in economics in 1936, literature of financial economics is still treating animal spirits across financial markets with scepticism in spite of many notable attempts [@kahneman2003maps; @shiller2005behavioral; @dai2020animal] and the award of the Noble Prize in Economics for systematic attempts to explore the psychological biases in economic decision-making [@kahneman2003maps]. 
+
+As previously stated, market efficiency is achieved when markets are perfect while deviations from perfect markets can be attributed to various causes that might be related to developments in the macroeconomic environment or market frictions such as transaction costs and limits to arbitrage. Behavioural biases and other deviations from rationality such as herding or other positive feedback behaviour classify as potential drivers of market inefficiency as well [@aggarwal2014animal].  Some of these forces against market efficiency can be mitigated, but they cannot be eliminated. Thus, while there are many self-correcting forces that move markets towards efficiency, there are also many obstacles and costs that these equilibrating forces must overcome. 
+
+Financial markets that are dominated by agents’ actions have been a perfect setting to study human behavior and in particular the occurrence of various biases since the seminal study of @tversky1974judgment. Literature on the behavioral effects on decision making has flourished in recent decades [see @aggarwal2014animal for a detailed review]. Behavioural economics that lie in the intersection of psychology and economics attempt to shed more light on these biases and how they affect decisions made by agents acting under cognitive and emotional constraints [@mullainathan2000behavioral]. Human behavior that is by nature prone to heuristics, emotional biases and framing effects [@aggarwal2014animal] might result in sub-optimal decisions that in turn cause market inefficiencies and market failures.  
+
+Under this context, market participants and financial economists provide increasingly convincing evidence that imitative behaviour is widespread in financial markets [@devenow1996rational]. This correlated trading behaviour of investors at large scale could pose significant threats to financial stability since they might increase volatility and create headaches for policymakers and supervisory authorities [@demirer2015commodity].
+
+Therefore, the concept of herding behavior started to gain the attention of researchers and academics early in the 1990s, when the studies of @banerjee1992simple and @bikhchandani1992theory appeared. Literature on herding is voluminous but still remains inconclusive. Herding behaviour can be distinguished between unintentional and intentional. In the former case investors respond to a common set of information that refers to market developments and in the latter case investors discard their own beliefs and decide to follow the decisions of other leading to intentional herding [@bikchandani2000herd].  @spyrou2013herding and @komalasari2022herding provide some excellent reviews of the relevant studies. Herding studies have expanded across the behavior of individual investors across all financial markets namely stock markets [see inter alia @demirer2006does; @chiang2010empirical; @ukpong2021determinants], bond markets [see inter alia @galariotis2016herd], commodities’ markets [@demirer2015commodity; @babalos2015herding; @babalos2015commodity; @junior2020analyzing; @youssef2022oil], real estate markets [see inter alia @philippas2013herding; @lesame2024herding] using returns data. Another strand of literature focus on herding behaviour of institutional investors such as money managers [@jiang2018does], financial analysts [@leece2017effects] and FX market forecasters [@tsuchiya2015herding] employing mostly information from transactions data. Most recently, herding behavior of investors in cryptocurrency markets has received the attention of literature [see inter alia @bouri2019herding].
+
+Herding has been in the epicentre of a heated discussion that seeks robust empirical evidence in an attempt to confirm that correlated actions of investors at a large scale could induce market instability and volatility. Likewise, the above argument could work the other way around that is herding is more intense during market turmoil or increased volatility. @welch2000herding points out: "Herding in financial markets, in particular, is often presumed to be pervasive, even though the extant empirical evidence is surprisingly sparse". Studies on herding examine the behaviour of investors towards market as a whole or at a sector level. Researchers have been concerned with herding activity across sectors in the US or in an international context with contradictory results [see inter alia @christie1995following; @choi2009institutional; @litimi2016herding]. Herding behaviour might vary across sectors probably because of the specific style of the industry, the economic conditions that might affect each sector or the trading patterns of investors in certain industries. @henker2006investors find that herding is more prevalent in industries such as materials, consumer staples and financials. @gkebka2013international employing data for 32 countries find that herding is more intense in sectors such as basic materials, consumer services, and oil and gas and this behaviour might be the result of a group of investors that follow each other in and out of markets, overconfidence, or excessive flight to quality. They also stressed that testing herding towards market could underestimate the real effect of herding behaviour and research should try to shed light on the behaviour of investors at sector level. In the Malaysian market, @dehghani2014sectoral find that herding behaviour is only constrained to technology sector. Nine Asian markets were investigated by @zheng2017herding for herding at sector level. They provided evidence in favour of herding in the Technology and Financial industries, but weaker in the Utility industry. Moreover, herding in certain industries was more intense during bear markets and low trading volumes.  Returning to US, @bensaida2017herding confirmed the presence of herding behaviour for 10 out of 12 sectors of US stock market during periods of financial crises and bubbles. @ukpong2021determinants document weak evidence of herding especially in the Financials, Real Estate, Telecoms and Utilities sectors for US market.
+
+Therefore, the study of herding behaviour across financial markets has become increasingly important in understanding the dynamics of investor decision-making and market stability. Herding, whether intentional or unintentional, reflects the tendency of investors to follow the crowd rather than act on independent information or analysis. This behaviour can exacerbate market volatility and pose challenges for regulators and policy-makers aiming to maintain financial stability.
+
+In summary the paper makes the following contributions to the literature. First, we provide new evidence on the presence of herding behaviour across different industry sectors in the US stock market. We concede that the study of industry herding is not novel, however, we offer a comprehensive perspective of its evolution going back to the great depression. We argue that there is value in this. Second, this comprehensive perspective includes the examination of the determinants of herding behaviour across different sectors, focusing on the intersection of herding behaviour and market crisis periods. Inspired by @nath2020investor, we investigate the relationship between herding behaviour and political cycles and approval ratings. This is a new area in the literature that we attempt to add to. It exposes risk-aversion as one of the key determinants of herding behaviour. The paper is structured as follows. Section 2 presents the data and methodology. Section 3 presents the results and Section 4 concludes.
+
+# Data and Methodology
+## Data
+
+Our analysis utilises Kenneth French's 49 industry portfolio returns.^[\url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french}] Through his website Kenneth French provides a variety of financial market related data for research purposes, which include the famous Fama/French factors data. These data have two main advantages for researchers. First, the industry portfolio data varies in detail from 5 to 49 industry data-sets. Second, the data cover long periods of time, typically to pre World War II. Specifically, the daily data covers the period 1 July 1926 to 29 July 2022. The significant length and breadth of this data is essential for our analysis.   
+
+We create 5 industry groups from the 49 industries in order to calculate the cross sectional dispersions as outlined in the methodology. In the data, stocks are assigned from the NYSE, AMEX, NASDAQ to an industry portfolio using a four-digit Centre for Research in Security Prices Standard Industry Classification Codes (CSRP-SIC).^[At the end of June each year] Essentially, the CSRP-SICs determine the level of industry aggregation in the data. Therefore, in @tbl-grouping we group the industries using the CSRP-SICs.^[These are also available from \url{http://mba.tuck.dartmouth.edu/pages/faculty/ken.french}] Lastly, @fig-cons to @fig-mines, and @tbl-desc show the described industry data. 
+
+In addition, we focus on herding behaviour in periods of financial crisis. Therefore, we use Wikipedia  to identify 5 crises periods.^[\url{https://en.wikipedia.org/wiki/List_of_economic_crises}] That is, the Great Depression, Dot-com Bubble, Great Financial Crisis and the recent Covid-Crisis. The crises periods are shown in @tbl-crises_description. 
+
+Lastly, in order to understand the effect of political cycles on industry herding we estimate the relationship between the time-varying herding coefficient and US presidential terms as outlined in @eq-political below.^[The US presidential terms can be found at \url{https://en.wikipedia.org/wiki/List_of_United_States_presidential_election_dates}] The US presidential terms are shown in @tbl-terms. In order to match with the industry herding coefficients, the terms  are converted to a daily frequency. We then estimate the relationship between presidential approval ratings (general and economic) and industry herding coefficients. The approval ratings unlike the presidential term data focuses on the performance of specific presidents and not just party terms. This analysis, therefore, adds to presidential term results which focused on party affiliation and industry herding. The approval ratings are shown in @fig-approval.^[The data can be accessed from: \url{http://www.presidency.ucsb.edu/data/popularity.php.}] The presidential approval ratings (PAR) are compiled from the Gallup Poll by the American Presidency Project. The respondents answer the same question since 1941, "Do you approve or disapprove of the way (enter President name) is handling his job as President?". Then the percentage of respondents to the affirmative (or approval) forms the popularity or public approval rating. The presidential economic approval ratings (PEAR) data are collected by several organisations^[These include ABC News, American Research Group, CNN, and Fox News, amongst others.] overtime based on the question, "Do you approve or disprove of the way (name of the president) is handling the economy?".^[The PEAR data can be accessed at \url{https://www3.nd.edu/~zda/PEAR.xlsx}]  The PAR data are available from 1941 to 2022 at a monthly frequency. Whilst the PEAR data is from 1981 to 2022, also at a monthly frequency. We converted these to a daily frequency to match the industry herding data.^[Essentially repeating the monthly value for all the days of that specific month] 
+
+## Testing for industry herding 
+
+Following @christie1995following and @chang2000examination we calculate the  cross-sectional absolute standard deviations ($CSAD_{t}$) for each industry group. The $CSAD_{t}$ is calculated for all markets as follows:
+
+$$CSAD_{t} = \frac{1}{N}\sum_{i =1}^{N}{|R_{i,t} - R_{m,t}|},$$ {#eq-csad}
+
+where $R_{i,t}$ observed returns from individual industry $i$ at time $t$, $R_{m,t}$ is the average of the $R_{i,t}$ or the market return. In this case, $R_{m,t}$ is the group industry return which is an average of the individual industry returns. The return dispersion measures capture the directional similarity industry returns at a given point in time with respect to the aggregate market or group return. Herding tests, in turn, are based on the pattern of return dispersions during periods of large price movements. 
+
+The rationale behind the testing methodology is that, if herding is present, the correlated trades by investors will lead to greater directional similarity in industry returns, thus leading to lower dispersion in returns. This can be measured by the sign of the coefficients of the relationship between the return dispersion and $R_{m, t}$ and $R_{m, t}^2$ (or market return measures) in these equations for the general market herding:
+
+
+$$CSAD_{t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
+$$ {#eq-csad2}
+
+where $\gamma_2$ is the herding coefficient. The expectation is that $\gamma_1 > 0$ and $\gamma_2 < 0$ if herding is present. $R_{m, t}^2$, therefore, is a non-linear term which captures the herding effect. This non-linear effect implies no herding when $\gamma_2 = 0$, anti-herding when $\gamma_2 > 0$ and, obviously, herding when $\gamma_2 < 0$. We estimate $CSAD_{t}$ with heteroskedastic and autocorrelation consistent (HAC) standard errors [See @newey1987simple].^[We utilise the Newey-West estimator for all estimations in this paper.] Furthermore, for all testing equations, we estimate changes in herding behaviour over time using a rolling-window approach with a 250 day.^[This is a commonly used window in the literature. We do this throughout the herding analysis]  
+
+
+## Industry herding in periods of financial crisis
+
+Herding is known to be more pronounced in times of market crisis. To test for this we use a dummy variable approach to test whether herding is more pronounced during periods of financial crisis. @eq-csad2 is adjusted to include the $D^{crisis}$, which is an crisis period indicator, as follows:
+
+$$
+\begin{aligned}
+CSAD_{t} = \gamma_0 +  \gamma_1D^{crisis}|R_{m, t}| + \gamma_2(1 - D^{crisis})|R_{m,t}| + \\  \gamma_3D^{crisis}R_{m, t}^2 + \gamma_4(1-D^{crisis})R_{m,t}^2 + \epsilon_{t},
+\end{aligned}
+$$ {#eq-csad3}
+
+where $D_{crisis}$ is a dummy variable which takes the value of 1 during periods of financial crisis and 0 otherwise. That is, to isolate the herding effect ($\gamma_3D^{crisis}R_{m, t}^2$) only to periods of market crisis. Therefore,  in @eq-csad3 herding is present if $\gamma_3 < 0$ and is significant. 
+
+## Industry herding and fundamental information
+Herding can be considered either a rational response to public information by investors, or an accumulation of irrational behaviour by investors due to, for example, fear of under performance or fear of missing out on a market run [see @Bikhchandani2001]. In order to test for the rationality of herding, we test whether herding is related to fundamental information. We use the following equations to test for the relationship between herding and fundamental information, and herding and non-fundamental information. First we isolate the non-fundamental component of herding as follows:
+
+$$
+CSAD_t = \alpha + \beta_1(R_{m,t} - Rf_t) + \beta_2HML_t + \beta_3SMB_t + \xi_t,
+$${#eq-info}
+
+where $Rf_t$ is the risk-free rate, $HML_t$ is the high-minus-low portfolio and $SMB_t$ is the small-minus-big portfolio. The $Rf_t$, $HML_t$ and $SMB_t$ are all from the Fama-French 3 factor model [see @fama1993common] and are shown in @fig-famafrench. 
+
+The non-fundamental component of herding is then:
+$$
+CSAD_{NONFUND, t} = \xi_t.
+$${#eq-nonfunda}
+
+It stands to reason that the fundamental component of herding is then:
+$$
+CSAD_{FUND, t} = CSAD_t - CSAD_{NONFUND, t},
+$${#eq-funda}
+
+where $CSAD_{FUND, t}$ is the fundamental component of herding. 
+
+We then test the relationship between $CSAD_{NONFUND, t}$ and $CSAD_{FUND, t}$ and herding  as follows:
+
+$$
+CSAD_{NONFUND,t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
+$$ {#eq-nonfundaherd}
+
+$$
+CSAD_{FUND,t} = \gamma_0 +  \gamma_1|R_{m, t}| +  \gamma_2R_{m, t}^2 + \epsilon_{t},
+$$ {#eq-fundaherd}
+
+where $\gamma_2$ is the herding coefficient. Again, the expectation is that $\gamma_1 > 0$ and $\gamma_2 < 0$ if herding is present.
+
+Extending the analysis further, we test if the rational and irrational components of herding are more pronounced during periods of financial crisis. We use the following equations to test for the relationship between herding and fundamental information, and herding and non-fundamental information during periods of financial crisis:
+
+$$
+\begin{aligned}
+CSAD_{NONFUND, t} = \gamma_0 +  \gamma_1D^{crisis}|R_{m, t}| + \gamma_2(1 - D^{crisis})|R_{m,t}|  + \\  
+\gamma_3D^{crisis}R_{m, t}^2 + \gamma_4(1-D^{crisis})R_{m,t}^2 + \epsilon_{t},
+\end{aligned}
+$$ {#eq-nonfundacrisis}
+
+$$
+\begin{aligned}
+CSAD_{FUND, t} = \gamma_0 +  \gamma_1D^{crisis}|R_{m, t}| + \gamma_2(1 - D^{crisis})|R_{m,t}|  + \\ \gamma_3D^{crisis}R_{m, t}^2 + \gamma_4(1-D^{crisis})R_{m,t}^2 + \epsilon_{t},
+\end{aligned}
+$$ {#eq-fundacrisis}
+
+where, again, to isolate the herding effect ($\gamma_3D^{crisis}R_{m, t}^2$) to periods of market crisis. $D_{crisis}$ is a dummy variable which takes the value of 1 during periods of financial crisis and 0 otherwise. Therefore, both in  @eq-nonfundacrisis and @eq-fundacrisis herding is present if $\gamma_3 < 0$ and is significant.
+
+## Industry herding and political cycles
+ 
+Inspired by the resent findings that risk aversion is a determinant of herding [@nath2020investor], we construct a somewhat novel test to ask whether herding is related to political cycles. After taking market volatility into account, we estimate the following equations:
+
+$$
+Pr(D^{herd} = 1 |\lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t) = \lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t,
+$$ {#eq-political}
+
+where $D^{herd}$ is dummy variable with value 1 when herding is present and 0 otherwise. $D^{party}$ is a dummy variable which takes the value of 1 for the Democratic party, and 0 for the Republican party.^[@eq-political, @eq-politicalnonfund and @eq-politicalfund were estimated as linear probability and probit models. The estimates of the linear probability model are the similar to the probit marginal effects. For simplicity we use the linear probability model estimates. The probit marginal effects are shown in @tbl-probit.] $\lambda_0$ is the Republican party estimate. $\Gamma_t$ is the market volatility from a $GARCH(1,1)$ model of the overall market returns (CSRP) of the industry portfolios as described above, and is shown in @fig-volatility. 
+
+A natural question which follows is if the political cycle is a determinant herding, how is this affected by the rational or irrational herding. A similar analysis is conducted using herding related to fundamental and non-fundamental information in the following manner:
+
+$$
+Pr(D^{herd}_{NONFUND} = 1 |\lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t) = \lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t,
+$$ {#eq-politicalnonfund}
+
+$$
+Pr(D^{herd}_{FUND}= 1 |\lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t) = \lambda_0 +  \lambda_1D^{party}  + \lambda_2\Gamma_t,
+$$ {#eq-politicalfund}
+
+where $D^{herd}_{NONFUND}$ and $D^{herd}_{FUND}$ are dummy variables with value 1 when non-fundamental and fundamental herding is present and 0 otherwise. 
+
+To further understand the relationship between industry herding and political cycles, we turn our attention to the effect of the performance of specific US presidents on industry herding. This is done by extending @eq-nonfundaherd and @eq-nonfundaherd to include the influence on herding of periods where presidential ratings are high and low in the following manner:
+
+$$
+CSAD_{NONFUND} = \gamma_0 + \gamma_1|R_{m,t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m,t}^2 + \gamma_4D_{low}R_{m,t}^2 + \epsilon_{t}, 
+$$ {#eq-approval}
+
+
+$$
+CSAD_{FUND} = \gamma_0 + \gamma_1|R_{m,t}| + \gamma_2R_{m, t}^2 + \gamma_3D_{high}R_{m,t}^2 + \gamma_4D_{low}R_{m,t}^2 + \epsilon_{t}, 
+$$ {#eq-approval_econ}
+
+where $D_{high}$ is a dummy variable which takes a value of 1 when the presidential approval rating ($PEAR_t$) is high^[in the top third of observations] and 0 otherwise, and $D_{low}$ is a dummy variable which takes a value of 1 when the presidential approval rating is low and 0 otherwise. This extension is in line with @pastor2020political who suggests that herding is high when uncertainty in high (which occurs when presidential ratings are low) @eq-approval and @eq-approval_econ was estimated with OLS and HAC standard errors.
+
+# Results
+
+## Descriptive analysis
+
+@tbl-desc presents the descriptive statistics namely median, standard deviation, minimum and maximum, IQR and total number of observations of the employed variables for the whole US market and for every industry separately during normal times and during the pre-defined crisis periods. @tbl-desc is built on the daily industry data in @fig-cons to @fig-mines, the industry grouping scheme in @tbl-grouping, and the crises periods in @tbl-crises_description. With over 25000 observations in the sample, these form the basis of the empirical analysis. The reader will note the low to zero returns in some industries in the earlier crisis periods influenced by the high volatility of returns in the market. These also explain some of the low estimates in the forthcoming results.
+
+## Evidence of industry herding in the US 
+
+@tbl-ols reports the ordinary least squares results of @eq-csad2 employing the US industry returns both at aggregate level and at an industry level. @tbl-ols is divided into three separate panels: the top panel presents estimated coefficients of @eq-csad2 employing all days for the whole period of analysis while the middle panel presents the estimation results only for the top market returns and the bottom panel the relevant estimates during the down markets. Herding is detected examining the statistical significance and the sign of coefficient $\gamma_2$ that can be found at the last column. When herding is present, $\gamma_2$ assumes negative sign and appears statistically significant. A quick look of the results in @tbl-ols reveals no herding behaviour when we use all day returns but significant herding effects for the whole sample and for separate sectors such as Consumables, Health and Other only during up markets. For example, in the middle panel and at the last column for Consumables we see a herding coefficient $\gamma_2$ of -0.00016 that is highly significant. If we turn our attention to the bottom panel we document weak evidence of herding effects in the Manufacturing sector, an estimated value of $\gamma_2$ coefficient -0.00006 that is statistically significant at 1%. 
+
+\newpage
+
+
+```{r}
+#| label: tbl-ols
+#| tbl-cap: "Industry herding ols results"
+#| cache: false
+
+equation <-  as_equation(c("CSAD_{t} = \\gamma + \\gamma_1|R_{m, t}| +  \\gamma_2R_{m, t}^2 +  \\epsilon_{t}"))
+estimates <- c(
+  "\\gamma",
+  "\\gamma_1 ",
+  "\\gamma_2"
+)
+
+general_herding <- read_rds(here("Outputs", "artifacts_general_herding.rds"))
+general_herding$models$ols_combined_tbl %>% 
+ ungroup() %>% 
+ as_grouped_data(groups = c("Extreme")) %>%
+ as_flextable(hide_grouplabel = TRUE) %>%
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3, 4), part = "header", value = as_paragraph(as_equation(estimates))) %>% 
+    add_footer_row(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.", " ", " The regressions are based on ", equation), colwidths = 4) %>% 
+  hline_bottom(part = "footer", border = fp_border(color = "black", style = "solid", width = 1)) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>% 
+  autofit(add_w = 0.7)
+
+```
+
+```{r}
+#| label: fig-rol_gen
+#| fig-cap: "Industry herding rolling regressions with 250 day window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+
+rol_gg <- general_herding$graphs$rol_gg
+rol_gg
+```
+
+
+Following previous studies that highlight the dynamic nature of herding effect [@babalos2015commodity; @klein2013time; @mohamad2022birds] we have estimated @eq-csad2 using a rolling window estimation period of 250 days for the whole period of analysis. @fig-rol_gen presents the graphical illustration of the results. In particular, we can see the time evolution of the t-statistic of the estimated coefficients with the t statistic of $\gamma_2$ being at the epi-center of our focus. Contrary to previous findings using the static approach, the rolling window analysis reveals substantial anti-herding effects for the whole market (all industries) and for a number of industries, with periods of herding being present only during the crisis periods. The results are in line with the findings of previous studies that document the dynamic nature of herding effects, that herding is closely related to crisis periods. We focus on this point in the next section.
+
+
+## US industry herding in periods of financial crises
+
+@tbl-ols_crisis reports the ordinary least squares results of @eq-csad2 employing the US industry returns both at aggregate level and at an industry level during the pre-defined four crises periods: the Great Depression, Dot-com Bubble, Great Financial Crisis and the covid crisis. The estimation of the crisis periods is according to @eq-csad3. As stated earlier, herding during crisis periods is verified by means of the negative sign of the estimated coefficient $\gamma_3$. The results point to the existence of significant herding effects for all industries employed during the four crisis periods. In particular, during the Great Depression herding is present when we employ all industries while across industries we document herding in three out of five industries namely Business services, Consumables and Other display strong herding effects. Health industry displays weak evidence of positive or anti-herding behaviour. Therefore, herding persists for all industries during the other four crisis periods.
+
+@fig-rol_crisis_gd to @fig-rol_crisis_cv plot the results of the rolling window estimation of 250 days for @eq-csad3 during the above mentioned crisis periods. These plots confirm the herding effects observed in the static results above, that herding was mainly present during crisis periods. 
+
+\newpage
+
+
+```{r}
+#| label: tbl-ols_crisis
+#| tbl-cap: "Industry herding in crisis periods"
+#| cache: false
+#| include: true
+#| eval: true
+
+equation <-  as_equation(c("CSAD_{t} = \\gamma + \\gamma_1D^{crisis}|R_{m, t}| + \\gamma_2(1-D^{crisis})|R_{m, t}| + \\gamma_3D^{crisis}R_{m, t}^2 +  \\gamma_4(1-D^{crisis})R_{m, t}^2 +  \\epsilon_{t}"))
+estimates <- c(
+  "\\gamma",
+  "\\gamma_1 ",
+  "\\gamma_2",
+  "\\gamma_3 ",
+  "\\gamma_4"
+)
+
+CSAD_model_rol_crisis <- read_rds(here("Outputs", "artifacts_herding_crisis.rds"))
+CSAD_model_rol_crisis_tbl <- CSAD_model_rol_crisis$models$combined_regression_tbl
+
+
+CSAD_model_rol_crisis_tbl %>%
+    ungroup() %>% 
+  as_grouped_data(groups = c("Crisis")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>%  
+   mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+   mk_par(i =, j = c(2, 3, 4, 5, 6), part = "header", value = as_paragraph(as_equation(estimates))) %>% 
+    add_footer_row(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1."," ", " The regressions are based on ", equation), colwidths = 6) %>% 
+  hline_bottom(part = "footer", border = fp_border(color = "black", style = "solid", width = 1)) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>% 
+  merge_at(i = 22) %>% 
+  align(i = 22, align = "center") %>% 
+  autofit(add_w = 0.1)
+
+
+```
+
+
+\newpage
+
+
+```{r}
+#| label: fig-rol_crisis_gd
+#| fig-cap: "Industry herding during the Great Depression using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_gd_gg <- CSAD_model_rol_crisis$graphs$rol_gd_gg
+rol_gd_gg
+
+```
+
+```{r}
+#| label: fig-rol_crisis_db
+#| fig-cap: "Industry herding during the Dot-com Bubble using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_db_gg <- CSAD_model_rol_crisis$graphs$rol_db_gg
+rol_db_gg
+```
+
+```{r}
+#| label: fig-rol_crisis_fc
+#| fig-cap: "Industry herding during the Financial Crisis using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_fc_gg <- CSAD_model_rol_crisis$graphs$rol_fc_gg
+rol_fc_gg
+```
+
+```{r}
+#| label: fig-rol_crisis_cv
+#| fig-cap: "Industry herding during the Covid Crisis using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_cv_gg <- CSAD_model_rol_crisis$graphs$rol_cv_gg
+rol_cv_gg
+
+```
+
+
+
+## The role of fundamental information in US industry herding 
+### In normal times
+
+Following relevant literature that attempts to isolate intentional from spurious herding [@holmes2013herding for institutional investors; @galariotis2015herding for stock market investors] we estimate @eq-nonfundaherd and @eq-fundaherd for the non-fundamental related and fundamental related Cross Sectional Absolute Deviation during non-crisis period. @tbl-ols_fund presents the results of the estimated coefficients that capture the existence of intentional and spurious herding through the coefficient $\gamma_2$ that is presented in the last column of @tbl-ols_fund. It is worth mentioning that herding on fundamentals is evident for the whole market and for three out of five industries namely Consumables, Manufacturing and Other. However, if we turn our attention to intentional herding, we observe no significant herding behavior across no industry or the market whatsoever. @fig-rol_fundamental and @fig-rol_nonfundamental plot the time evolution of coefficients of interest along with the t-statistic using a 250-day rolling window analysis for fundamental and non-fundamental herding during non-crisis period.  
+
+
+
+```{r}
+#| label: tbl-ols_fund
+#| tbl-cap: "Industry herding on fundamental information"
+#| cache: false
+#| include: true
+#| eval: true
+
+equation_1 <-  as_equation(c("CSAD_{NONFUND, t} = \\gamma + \\gamma_1R_{m, t}| + \\gamma_2R_{m, t}^2 + \\epsilon_{t}"))
+equation_2 <-  as_equation(c("CSAD_{FUND, t} = \\gamma + \\gamma_1R_{m, t}| + \\gamma_2R_{m, t}^2 + \\epsilon_{t}"))
+estimates <- c(
+  "\\gamma",
+  "\\gamma_1 ",
+  "\\gamma_2"
+)
+
+CSAD_model_fundmamental <- read_rds(here("Outputs", "artifacts_fundamental_herding.rds"))
+CSAD_model_fundamental_tbl <- CSAD_model_fundmamental$ols$ols_fund_tbl
+
+
+CSAD_model_fundamental_tbl %>%
+    ungroup() %>% 
+  as_grouped_data(groups = c("Herd")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+   mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+   mk_par(i =, j = c(2, 3, 4), part = "header", value = as_paragraph(as_equation(estimates))) %>% 
+    add_footer_row(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.", " ", " The regressions are based on ", equation_1, " and ", equation_2), colwidths = 4) %>% 
+  hline_bottom(part = "footer", border = fp_border(color = "black", style = "solid", width = 1)) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  autofit(add_w = 0.6)
+
+
+```
+
+```{r}
+#| label: fig-rol_fundamental
+#| fig-cap: "Industry herding on fundamental information using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_fundamental_gg <- CSAD_model_fundmamental$ols_rol_graphs$rol_fundamental_gg
+rol_fundamental_gg
+
+```
+
+```{r}
+#| label: fig-rol_nonfundamental
+#| fig-cap: "Industry herding on non-fundamental information using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_nonfundamental_gg <- CSAD_model_fundmamental$ols_rol_graphs$rol_nonfundamental_gg
+rol_nonfundamental_gg
+
+```
+
+
+### During crisis periods
+
+@tbl-ols_crisis_fund presents the results of herding on fundamental and non-fundamental information for US industries during the four crisis periods. The coefficient of interest is $\gamma_3$ which in cases of negative and statistically significant reflects herding behaviour. Observing the results of @tbl-ols_crisis_fund some interesting findings emerge. Firstly, during the Great Depression investors appear to herd both on fundamental and non-fundamental information at market level. 
+
+For industries, we document a unintentional herding across all industries during the Great Depression where intentional herding is evident only for Business Services, Consumable and Other. Secondly, a striking result refers to the behaviour of investors in US industries during Dot-com bubble. According to the estimated results, investors appear to herd only intentionally since the coefficient of interest $\gamma_3$ appears negative and strongly statistically significant across all industries and the market as a whole. Moving more recently to the Global Financial Crisis (GFC), our results highlight substantial evidence of spurious and intentional herding for all industries and for the market as a whole. 
+
+\newpage
+
+
+```{r}
+#| label: tbl-ols_crisis_fund
+#| tbl-cap: "Industry herding on fundamental information in crisis periods"
+#| cache: false
+#| include: true
+#| eval: true
+
+equation <-  as_equation(c("CSAD_{FUND, t} = \\gamma + \\gamma_1D^{crisis}|R_{m, t}| + \\gamma_2(1-D^{crisis})|R_{m, t}| + \\gamma_3D^{crisis}R_{m, t}^2 +  \\gamma_4(1-D^{crisis})R_{m, t}^2 +  \\epsilon_{t}"))
+
+equation_2 <-  as_equation(c("CSAD_{NONFUND, t} = \\gamma + \\gamma_1D^{crisis}|R_{m, t}| + \\gamma_2(1-D^{crisis})|R_{m, t}| + \\gamma_3D^{crisis}R_{m, t}^2 +  \\gamma_4(1-D^{crisis})R_{m, t}^2 +  \\epsilon_{t}"))
+estimates <- c(
+  "\\gamma",
+  "\\gamma_1 ",
+  "\\gamma_2",
+  "\\gamma_3 ",
+  "\\gamma_4"
+)
+
+CSAD_model_rol_crisis_fund <- read_rds(here("Outputs", "artifacts_crisis_fundamental.rds"))
+CSAD_model_rol_crisis_fund_tbl <- CSAD_model_rol_crisis_fund$ols$ols_tbl
+
+
+CSAD_model_rol_crisis_fund_tbl %>%
+    ungroup() %>% 
+  as_grouped_data(groups = c("Fund")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>%  
+   mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+   mk_par(i =, j = c(2, 3, 4, 5, 6), part = "header", value = as_paragraph(as_equation(estimates))) %>% 
+    add_footer_row(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.", " ", " The regressions are based on ", equation, " and ", equation_2), colwidths = 6) %>% 
+  hline_bottom(part = "footer", border = fp_border(color = "black", style = "solid", width = 1)) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>% 
+  merge_at(i = 22) %>% 
+  align(i = 22, align = "center") %>% 
+  merge_at(i = 29) %>% 
+  align(i = 29, align = "center") %>% 
+  merge_at(i = 36) %>% 
+  align(i = 36, align = "center") %>% 
+  merge_at(i = 43) %>% 
+  align(i = 43, align = "center") %>% 
+  merge_at(i = 50) %>% 
+  align(i = 50, align = "center") %>% 
+  autofit(add_w = 0.1)
+
+
+```
+
+
+
+The only exception is the Business sector that displays no spurious herding during GFC. Our results are partly consistent with those reported by @galariotis2015herding who documented only non-fundamental herding during sub-prime crisis for the whole market. However, we must be cautious with the comparison since the defined crisis periods might vary. Spurious and intentional herding of investors is also present during covid crisis period except for the Health industry that under the non-fundamental formulation we document an anti-herding behaviour [@nath2020investor]. @fig-rol_fundamental_gd to @fig-rol_fundamental_cv  plot the time evolution of the estimated coefficients of @eq-fundaherd during the four crisis periods while @fig-rol_nonfundamental_gd to @fig-rol_nonfundamental_fc present the behaviour of the rolling window estimated coefficients for the non-fundamental herding equation.
+
+
+```{r}
+#| label: fig-rol_fundamental_gd
+#| fig-cap: "Industry herding on fundamental information during the Great depression using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+crisis_fundamental <- read_rds(here("Outputs", "artifacts_crisis_fundamental.rds"))
+
+rol_fund_gd_gg <- crisis_fundamental$fundamental$rol_fund_gd_gg
+rol_fund_gd_gg
+
+```
+
+```{r}
+#| label: fig-rol_fundamental_db
+#| fig-cap: "Industry herding on fundamental information during the Dot-com bubble using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_fund_db_gg <- crisis_fundamental$fundamental$rol_fund_db_gg
+rol_fund_db_gg
+```
+
+```{r}
+#| label: fig-rol_fundamental_fc
+#| fig-cap: "Industry herding on fundamental information during the Financial crisis using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_fund_fc_gg <- crisis_fundamental$fundamental$rol_fund_fc_gg
+rol_fund_fc_gg
+
+```
+
+```{r}
+#| label: fig-rol_fundamental_cv
+#| fig-cap: "Industry herding on fundamental information during the Covid crisis using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_fund_cv_gg <- crisis_fundamental$fundamental$rol_fund_cv_gg
+rol_fund_cv_gg
+
+```
+
+```{r}
+#| label: fig-rol_nonfundamental_gd
+#| fig-cap: "Industry herding on non-fundamental information during the Great depression using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_nonfund_gd_gg <- crisis_fundamental$nonfundamental$rol_nonfund_gd_gg
+rol_nonfund_gd_gg
+
+```
+
+```{r}
+#| label: fig-rol_nonfundamental_db
+#| fig-cap: "Industry herding on non-fundamental information during the Dot-com bubble using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_nonfund_db_gg <- crisis_fundamental$nonfundamental$rol_nonfund_db_gg
+rol_nonfund_db_gg
+
+```
+
+```{r}
+#| label: fig-rol_nonfundamental_fc
+#| fig-cap: "Industry herding on non-fundamental information during the Financial crisis using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_nonfund_fc_gg <- crisis_fundamental$nonfundamental$rol_nonfund_fc_gg
+rol_nonfund_fc_gg
+
+```
+
+```{r}
+#| label: fig-rol_nonfundamental_cv
+#| fig-cap: "Industry herding on non-fundamental information during the Covid crisis using a 250-day rolling window. Note: The perforated lines represents a 5% level of significance."
+#| fig-height: 4
+#| fig-width: 8
+#| cache: false
+
+rol_nonfund_cv_gg <- crisis_fundamental$nonfundamental$rol_nonfund_cv_gg
+rol_nonfund_cv_gg
+```
+
+
+
+##  Industry herding and political cycles
+
+Lastly, @tbl-political presents the results of the estimated @eq-political, @eq-politicalnonfund and @eq-politicalfund in an attempt to answer the question whether herding behaviour across US industries is related to political cycles. The coefficient of interest $\lambda_1$ assumes a positive and a statistically significant value when we measure overall herding for All Industries and three other industries namely Consumables, Health and Other. This finding reflects a tendency of herding to be stronger when Democrats are in power while herding seems to diminish when Democrats are in power only for Business services. These linear probability model results are further affirmed by the probit results in @tbl-probit.
+
+\newpage
+
+
+```{r}
+#| label: tbl-political
+#| tbl-cap: "Herding and political cycles."
+#| cache: false
+
+equation_1 <-
+  as_equation(
+    c(
+      "Pr(D^{herd} = 1 | \\lambda_0 +  \\lambda_1D^{party}  + \\lambda_2\\Gamma_{t}) = \\lambda_0 +  \\lambda_1D^{party}  + \\lambda_2\\Gamma_{t}"
+    ),
+    height = 0.05,
+    unit = "cm"
+  )
+
+equation_2 <-
+  as_equation(
+    c(
+      "Pr(D^{herd}_{FUND} = 1 | \\lambda_0 + \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}) = \\lambda_0 +  \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}"
+    ),
+    height = 0.05,
+    unit = "cm"
+  )
+
+equation_3 <-
+  as_equation(
+    c(
+      "Pr(D^{herd}_{NONFUND} = 1 | \\lambda_0 +  \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}) = \\lambda_0 +  \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}"
+    ),
+    height = 0.05,
+    unit = "cm"
+  )
+
+estimates <- c("\\lambda_0", "\\lambda_1", "\\lambda_2")
+
+political <- read_rds(here("Outputs", "artifacts_party_dummy.rds"))
+political$ols_party_dummy_model_tbl %>% 
+  relocate(3, .before  = 2) %>% 
+  ungroup() %>% 
+  as_grouped_data(groups = c("Group")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3, 4), part = "header", value = as_paragraph(as_equation(estimates))) %>%
+  add_footer_lines(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.", 
+                                       " The regressions are based on ", equation_1,
+                                       " , ",
+                                       equation_2,
+                                       " and ",
+                                       equation_3)) %>%
+  hline_bottom(part = "footer",  
+               border = fp_border(
+                 color = "black",
+                 style = "solid",
+                 width = 1
+               )) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>%
+  autofit(add_w = 0.6)
+  
+```
+
+
+As an attempt to isolate overall to herding due to fundamentals and non-fundamentals we find that in the former case herding becomes stronger during Democratic administration for three out of five industries and for fundamental herding while in the latter case herding tends to be smaller when democratic party is in power for Business services, Manufacturing and Other. @pastor2020political state convincingly: ‘when risk aversion is high, as during economic crises, voters are more likely to elect a Democratic president because they demand more social insurance. When risk aversion is low, voters are more likely to elect a Republican because they want to take more business risk. Therefore, risk aversion is higher under Democrats.
+
+\newpage
+
+
+```{r}
+#| label: tbl-par
+#| tbl-cap: "Herding and PAR"
+#| cache: false
+#| eval: false
+#| include: false
+
+equation_1 <-
+  as_equation(
+    c(
+      "\\gamma_2^{herd} = \\theta_0 + \\theta_1PAR_t + \\epsilon_{t}"
+    )
+  )
+
+estimates <- c("\\theta_0", "\\theta_1")
+
+par <- read_rds(here("Outputs", "artifacts_par_models.rds"))
+par$models$par_ols_tbl %>% 
+  ungroup() %>% 
+  as_grouped_data(groups = c("Extreme")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3), part = "header", value = as_paragraph(as_equation(estimates))) %>%
+  add_footer_lines(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.",
+                                       " The regressions are based on ", equation_1,
+                                       ". PAR is the presidential approval rating as described in the data section above. ", equation_1, " was estimated using OLS with robust standard errors."
+                                      )) %>%
+  hline_bottom(part = "footer",  
+               border = fp_border(
+                 color = "black",
+                 style = "solid",
+                 width = 1
+               )) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>%
+  autofit(add_w = 1.2)
+  
+```
+
+```{r}
+#| label: tbl-pear
+#| tbl-cap: "Herding and PEAR."
+#| cache: false
+#| eval: false
+#| include: false
+
+equation_1 <-
+  as_equation(
+    c(
+      "\\gamma_2^{herd} = \\theta_0 + \\theta_1PEAR_t + \\epsilon_{t}"
+    )
+  )
+
+
+estimates <- c("\\theta_0", "\\theta_1")
+
+par$models$pear_ols_tbl %>% 
+  ungroup() %>% 
+  as_grouped_data(groups = c("Extreme")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3), part = "header", value = as_paragraph(as_equation(estimates))) %>%
+  add_footer_lines(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.",
+                                       " The regressions are based on ", equation_1,
+                                       ". PEAR is the presidential economic approval rating as described in the data section above. ", equation_1, " was estimated using OLS with robust standard errors."
+                                   )) %>%
+  hline_bottom(part = "footer",  
+               border = fp_border(
+                 color = "black",
+                 style = "solid",
+                 width = 1
+               )) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>%
+  autofit(add_w = 1.2)
+  
+```
+
+
+
+<!-- Extending the analysis to the presidential approval ratings, @tbl-par and @tbl-pear show that in terms of the general herding behaviour no statistically significant relationship is found with the presidential approval ratings. However, when we isolate the industry herding due to fundamentals and non-fundamentals we find that the former is positively related to the presidential approval ratings for Business services and negatively related to manufacturing, and other for the economic approval ratings. That is, it seems the approval ratings are mainly significant only in 'production' industries. This results are consistent with the party term results above, suggesting that risk-aversion is a driving factor of herding behaviour in these industries. -->
+
+
+
+```{r}
+#| label: tbl-par_alt
+#| tbl-cap: "Herding and PAR"
+#| cache: false
+#| include: false
+#| eval: true
+
+equation_1 <-
+  as_equation(
+    c(
+      "CSAD_{fund} = \\gamma_0 + \\gamma_1R_{m, t}| + \\gamma_2R_{m, t}^2 + \\gamma_3D_{high}R_{m, t}^2 + \\gamma_4D_{low}R_{m, t}^2 + \\epsilon_{t}"
+    )
+  )
+
+estimates <- c("\\gamma_0", "\\gamma_1", "\\gamma_2", "\\gamma_3", "\\gamma_4")
+
+par <- read_rds(here("Outputs", "artifacts_alternative_ratings_models.rds"))
+par$models$par_ols_fund_tbl %>% 
+  ungroup() %>% 
+  as_grouped_data(groups = c("Herd")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3, 4, 5, 6), part = "header", value = as_paragraph(as_equation(estimates))) %>%
+  add_footer_lines(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.",
+                                       " The regressions are based on ", equation_1,
+                                       ". PAR is the presidential approval rating as described in the data section above. ", equation_1, " was estimated using OLS with robust standard errors."
+                                      )) %>%
+  hline_bottom(part = "footer",  
+               border = fp_border(
+                 color = "black",
+                 style = "solid",
+                 width = 1
+               )) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  autofit(add_w = 0.1)
+  
+```
+
+```{r}
+#| label: tbl-pear_alt
+#| tbl-cap: "Herding and PEAR."
+#| cache: false
+
+
+par$models$pear_ols_fund_tbl %>% 
+  ungroup() %>% 
+  as_grouped_data(groups = c("Herd")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3, 4, 5, 6), part = "header", value = as_paragraph(as_equation(estimates))) %>%
+  add_footer_lines(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.",
+                                       " The regressions are based on ", equation_1,
+                                       ". PEAR is the presidential economic approval rating as described in the data section above. ", equation_1, " was estimated using OLS with robust standard errors."
+                                   )) %>%
+  hline_bottom(part = "footer",  
+               border = fp_border(
+                 color = "black",
+                 style = "solid",
+                 width = 1
+               )) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  autofit(add_w = 0.1)
+  
+```
+
+
+# Conclusion 
+The study investigates herding behaviour in the US market across different periods and industries using static and rolling-window models. The results suggest that herding behaviour is more pronounced during crisis periods, that is, in general and in industries. The findings are consistent with the literature that suggests that herding behaviour was more pronounced during periods of high uncertainty and risk aversion. The results also suggest that herding behaviour was not particular pronounced in one industry versus another. A departure from the thinking that fast moving industries such as business services which may be considered more sensitive to market conditions, would have more prevalent herding behaviour. This suggests that investors tend to herd to broader market conditions that industry specific market conditions.
+
+A novel aspect of the study is the investigation of the relationship between herding behaviour and presidential approval ratings. The results suggest that the presidential approval ratings are not significantly related to herding behaviour in general, but it seems the approval ratings are mainly significant only in 'production' industries. This results are consistent with the party term results above which showed that herding was more pronounced during Democratic administration. The results suggest, similar to @nath2020investor, that risk-aversion is a driving factor of herding behaviour in these industries.
+
+The results have important implications for policy-makers, and regulators who are interested in understanding the dynamics of herding behaviour in the US market. For example, in order to mitigate the effects of herding behaviour, regulators and policy-makers can improve market transparency, risk management requirements, and investor educational initiatives, amongst others. These initiatives are still relevant given that the results indicate similar herding behaviour in the recent Covid-crisis compared to previous market crises.
+
+The study focuses on the US market, and the results may not be generalizable to other markets. However, the study provides valuable insights into the dynamics of herding behaviour in the US market and highlights the importance of considering market conditions and sector-specific dynamics in understanding investor behaviour, and its implications for market stability and efficiency.
+
+\newpage
+
+# References {.unnumbered}
+::: {#refs}
+:::
+
+
+\setcounter{section}{0}
+\renewcommand{\thesection}{\Alph{section}}
+
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\newpage
+
+# Appendix
+## Industry data
+
+
+```{r}
+#| label: fig-cons
+#| fig-cap: "Consumables returns"
+#| fig-height: 4
+#| fig-width: 6
+#| cache: false
+
+returns_data <- read_rds(here("Outputs", "artifacts_returns_data.rds"))
+Consumer_durables_nondurables_wholesale_retail_some_services_group_equal_gg <- returns_data$graphs$Consumer_durables_nondurables_wholesale_retail_some_services_group_equal_gg
+
+Consumer_durables_nondurables_wholesale_retail_some_services_group_equal_gg
+```
+
+```{r}
+#| label: fig-health
+#| fig-cap: "Health returns"
+#| fig-height: 2
+#| fig-width: 6
+#| cache: false
+
+healthcare_medical_equipment_and_drugs_group_equal_gg <- returns_data$graphs$healthcare_medical_equipment_and_drugs_group_equal_gg
+
+healthcare_medical_equipment_and_drugs_group_equal_gg
+```
+
+```{r}
+#| label: fig-manufacturing
+#| fig-cap: "Manufacturing returns"
+#| fig-height: 4
+#| fig-width: 6
+#| cache: false
+
+manufacturing_energy_utilities_group_equal_gg <- 
+  returns_data$graphs$manufacturing_energy_utilities_group_equal_gg
+
+manufacturing_energy_utilities_group_equal_gg
+```
+
+```{r}
+#| label: fig-business
+#| fig-cap: "Business services returns"
+#| fig-height: 4
+#| fig-width: 6
+#| cache: false
+
+business_equipment_telephone_and_television_transmission_group_equal_gg <- returns_data$graphs$business_equipment_telephone_and_television_transmission_group_equal_gg
+
+business_equipment_telephone_and_television_transmission_group_equal_gg
+```
+
+```{r}
+#| label: fig-mines
+#| fig-cap: "Other returns"
+#| fig-height: 6
+#| fig-width: 8
+#| cache: false
+
+mines_constr_bldmt_trans_hotels_bus_serv_entertainment_finance__group_equal_gg <- returns_data$graphs$mines_constr_bldmt_trans_hotels_bus_serv_entertainment_finance__group_equal_gg
+
+mines_constr_bldmt_trans_hotels_bus_serv_entertainment_finance__group_equal_gg
+
+```
+
+
+## Industry groupings
+
+
+```{r}
+#| label: tbl-grouping
+#| tbl-cap: "Industry grouping using CRSP SICs"
+#| tbl-colwidths: auto
+#| cache: false
+
+aggregation_scheme_tbl <- returns_data$full_data$aggregation_scheme_tbl
+aggregation_scheme_tbl %>% 
+  flextable() %>% 
+  align(align = "left", part = "all") %>% 
+  autofit(add_w = -0.1)
+```
+
+
+## Crises periods
+
+
+```{r}
+#| label: tbl-crises_description
+#| tbl-cap: "Crises periods. Source: Wikipedia (2023)"
+#| cache: false
+
+crisis_tbl <- 
+  tibble(
+  "Crisis" = c("Great Depression", "Dot-com Bubble", "Financial Crisis", "Covid Crisis"),
+  "Start" = c("1929-01-01", "1997-01-01", "2007-01-01", "2020-01-01"),
+  "End" = c("1939-12-31", "2003-12-31", "2009-12-31", "2021-12-31")
+) 
+
+crisis_tbl %>% 
+  flextable() %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  autofit(add_w = 1.5)
+
+```
+
+
+## Descriptive statistics
+
+
+```{r}
+#| label: tbl-desc
+#| tbl-cap: "Descriptive statistics"
+#| cache: false
+
+descriptives <- read_rds(here("Outputs", "artifacts_descriptives.rds"))
+descriptives_tbl <- 
+  descriptives$descriptives_tbl %>% 
+  ungroup()
+
+
+descriptives_tbl %>%
+  as_grouped_data(groups = c("Category")) %>%
+  as_flextable(hide_grouplabel = TRUE) %>% 
+  align(align = "center", part = "all") %>% 
+  align(align = "left", j = 1, part = "all") %>% 
+  align(align = "left", j = 2, part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 12) %>%
+  align(i = 12, align = "center") %>%
+  merge_at(i = 23) %>%
+  align(i = 23, align = "center") %>%
+  merge_at(i = 34) %>% 
+  align(i = 34, align = "center") %>%
+  merge_at(i = 45) %>%
+  align(i = 45, align = "center") %>%
+  merge_at(i = 56) %>%
+  align(i = 56, align = "center") %>%
+  autofit(add_w = 0.45)
+
+```
+
+```{r}
+#| label: fig-results-all
+#| fig-cap: "Cross sectional deviations."
+#| fig-height: 14
+#| fig-width: 10
+#| cache: false
+#| include: false
+#| eval: false
+
+cross_sectionals <- read_rds(here("Outputs", "artifacts_csad_cssd.rds"))
+results_all_gg <- cross_sectionals$graphs$results_all_gg  
+results_all_gg
+```
+
+
+## Fama-French factors
+
+
+```{r}
+#| label: fig-famafrench
+#| fig-cap: "Fama-French Factors"
+#| cache: false
+#| fig-height: 4
+#| fig-width: 8
+
+famafrench <- read_rds(here("Outputs", "artifacts_fama_french.rds"))
+fama_french_gg <- famafrench$graphs$fama_french_gg
+fama_french_gg
+```
+
+
+## Presidential terms
+
+
+```{r}
+#| label: tbl-terms
+#| tbl-cap: "Presidential terms"
+#| cache: false
+
+# importing presidential terms
+presidential_terms <- read_rds(here("Outputs", "artifacts_presidential_terms.rds"))
+presential_terms_tbl <- 
+  presidential_terms$terms_tbl %>% 
+  filter(Term_start >= "1920-01-01") %>%
+  rename(
+    "Start" = "Term_start",
+    "End" = "Term_end") %>% 
+  mutate(
+    "Start" = lubridate::year(Start),
+    "End" = lubridate::year(End)
+  )
+
+# creating table of presidential terms
+presential_terms_tbl %>% 
+  flextable() %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  colformat_double(j = 2:3, digits = 0, big.mark = "") %>%
+  autofit(add_w = 1.8)
+
+```
+
+
+\newpage
+## Market volatility
+
+
+```{r}    
+#| label: fig-volatility
+#| fig-cap: "Market volatility"
+#| cache: false
+#| fig-height: 2
+#| fig-width: 8
+
+volatility <- read_rds(here("Outputs", "artifacts_volatility.rds"))
+volatility_gg <- volatility$graphs$volatility_gg
+volatility_gg
+
+```
+
+
+
+
+## Probit estimation
+
+
+```{r}
+#| label: tbl-probit
+#| tbl-cap: "Probit estimation (Marginal Effects)"
+#| cache: false
+
+equation_1 <-
+  as_equation(
+    c(
+      "Pr(D^{herd} = 1 | \\lambda_0 +  \\lambda_1D^{party}  + \\lambda_2\\Gamma_{t}) = \\lambda_0 +  \\lambda_1D^{party}  + \\lambda_2\\Gamma_{t}"
+    ),
+    height = 0.05,
+    unit = "cm"
+  )
+
+equation_2 <-
+  as_equation(
+    c(
+      "Pr(D^{herd}_{FUND} = 1 | \\lambda_0 + \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}) = \\lambda_0 +  \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}"
+    ),
+    height = 0.05,
+    unit = "cm"
+  )
+
+equation_3 <-
+  as_equation(
+    c(
+      "Pr(D^{herd}_{NONFUND} = 1 | \\lambda_0 +  \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}) = \\lambda_0 +  \\lambda_1D^{party} + \\lambda_2\\Gamma_{t}"
+    ),
+    height = 0.05,
+    unit = "cm"
+  )
+
+estimates <- c("\\lambda_1", "\\lambda_2")
+
+political$probit_party_dummy_model_tbl %>% 
+  ungroup() %>% 
+  as_grouped_data(groups = c("Group")) %>% 
+    as_flextable(hide_grouplabel = TRUE) %>% 
+  mk_par(i =, j = 1, part = "header", value = as_paragraph("Industry")) %>% 
+  mk_par(i =, j = c(2, 3), part = "header", value = as_paragraph(as_equation(estimates))) %>%
+  add_footer_lines(values = as_paragraph("Note: *** = p value < 0.01, ** = 0.01 < p value < 0.05, * = 0.05 < p value < 0.1.", 
+                                       " The marginal effects are based on probit estimations of ", equation_1,
+                                       " , ",
+                                       equation_2,
+                                       " and ",
+                                       equation_3)) %>%
+  hline_bottom(part = "footer",  
+               border = fp_border(
+                 color = "black",
+                 style = "solid",
+                 width = 1
+               )) %>% 
+  align(j = 1, align = "left", part = "all") %>% 
+  merge_at(i = 1) %>% 
+  align(i = 1, align = "center") %>% 
+  merge_at(i = 8) %>% 
+  align(i = 8, align = "center") %>% 
+  merge_at(i = 15) %>% 
+  align(i = 15, align = "center") %>%
+  autofit(add_w = 1)
+
+
+```
+
+
+## Presidential approval ratings
+
+
+```{r}
+#| label: fig-approval
+#| fig-cap: "Presidential approval ratings (Daily). "
+#| cache: false
+#| fig-height: 4
+#| fig-width: 8
+
+approval <- read_rds(here("Outputs", "artifacts_presidential_ratings.rds"))
+approval_gg <- approval$graph$combined_gg
+
+approval_gg
+
+```
+
+```{r}
+#| label: latex_version
+#| warning: FALSE
+#| message: FALSE
+
+# Packages -----------------------------------------------------------
+library(here)
+library(tidyverse)
+library(fs)
+
+
+# Delete current latex folder ----------------------------------------
+if (dir.exists(here("Latex_version"))) {
+  dir_delete(here("Latex_version"))
+}
+
+# Create folder ------------------------------------------------------
+dir.create(here("Latex_version"), recursive = TRUE)
+
+# Copy text files ---------------------------------------------------------
+list.files(path = ".", pattern = "tex", full.names = TRUE ) %>%
+  file.copy(to = here("Latex_version"), overwrite = TRUE)
+file.copy(here("references.bib"), here("Latex_version"), overwrite = TRUE)
+
+# Copy resources folder ---------------------------------------------
+folder_path <- list.dirs(path = ".", recursive = FALSE) %>%
+  str_subset("files")
+folder_name <- str_remove(folder_path, "./")
+dir_copy(folder_path, here("Latex_version", folder_name), overwrite = TRUE)
+
+```
+
